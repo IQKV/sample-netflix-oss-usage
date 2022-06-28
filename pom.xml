@@ -50,6 +50,7 @@
 
     <modules>
         <module>user-profile-service</module>
+        <module>department-service</module>
     </modules>
 
     <build>
