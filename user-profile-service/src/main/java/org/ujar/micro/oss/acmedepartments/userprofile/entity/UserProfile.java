@@ -25,14 +25,20 @@ public class UserProfile {
   @Size(min = 5, max = 254)
   private String email;
 
-  private boolean active;
+  private String firstName;
+
+  private String lastName;
+
+  private Long departmentId;
 
   @Override
   public String toString() {
     return "UserProfile{" +
-           "id=" + id +
+           "id='" + id + '\'' +
            ", email='" + email + '\'' +
-           ", active=" + active +
+           ", firstName='" + firstName + '\'' +
+           ", lastName='" + lastName + '\'' +
+           ", departmentId=" + departmentId +
            '}';
   }
 }

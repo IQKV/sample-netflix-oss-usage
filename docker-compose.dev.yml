@@ -1,6 +1,6 @@
 # This configuration is intended for development purpose
-version: '3.8'
-services:
+version : '3.8'
+services :
   mongodb :
     image : mongo:5.0-foca
     container_name : acmedepartments-mongodb
@@ -11,3 +11,16 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=sa_mongo
       - MONGO_INITDB_ROOT_PASSWORD=sa_mongo
       - MONGO_INITDB_DATABASE=userprofiledb
+
+  mysql :
+    image : mysql:5.7.34
+    container_name : acmedepartments-mysql
+    restart : unless-stopped
+    ports :
+      - 3306:3306
+    environment :
+      - MYSQL_DATABASE=sa_test_db
+      - MYSQL_USER=sa_test
+      - MYSQL_PASSWORD=sa_test
+      - MYSQL_ROOT_PASSWORD=sa_root
+      - TZ=UTC
