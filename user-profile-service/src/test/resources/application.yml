@@ -1,0 +1,16 @@
+spring :
+  application :
+    name : user-profile-service
+  devtools :
+    add-properties : false
+    restart :
+      enabled : false
+    livereload :
+      enabled : false
+  data :
+    mongodb :
+      uri :  ${MONGODB_SERVER_URI:mongodb://${embedded.mongodb.host}:${embedded.mongodb.port}/${embedded.mongodb.database}}
+
+embedded :
+  mongodb :
+    enabled : true
