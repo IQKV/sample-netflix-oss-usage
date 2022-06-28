@@ -2,12 +2,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.ujar.micro.oss.corpdepartments</groupId>
-    <artifactId>corpdepartments</artifactId>
+    <groupId>org.ujar.micro.oss.acmedepartments</groupId>
+    <artifactId>acmedepartments</artifactId>
     <version>0.8.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>micro-oss-corpdepartments</name>
+    <name>micro-oss-acmedepartments</name>
     <description>Minimal microservices example demo - using Spring Cloud / Netflix OSS Project</description>
     <licenses>
         <license>
@@ -32,7 +32,7 @@
     </developers>
 
     <scm>
-        <connection>scm:git:https://github.com/ujar-org/micro-oss-corpdepartments.git</connection>
+        <connection>scm:git:https://github.com/ujar-org/micro-oss-acmedepartments.git</connection>
         <tag>HEAD</tag>
     </scm>
 
@@ -47,6 +47,10 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
+
+    <modules>
+        <module>user-profile-service</module>
+    </modules>
 
     <build>
         <pluginManagement>
