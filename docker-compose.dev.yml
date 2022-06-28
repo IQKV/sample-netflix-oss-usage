@@ -1,0 +1,13 @@
+# This configuration is intended for development purpose
+version: '3.8'
+services:
+  mongodb :
+    image : mongo:5.0-foca
+    container_name : acmedepartments-mongodb
+    restart : unless-stopped
+    ports :
+      - 27017:27017
+    environment :
+      - MONGO_INITDB_ROOT_USERNAME=sa_mongo
+      - MONGO_INITDB_ROOT_PASSWORD=sa_mongo
+      - MONGO_INITDB_DATABASE=userprofiledb
