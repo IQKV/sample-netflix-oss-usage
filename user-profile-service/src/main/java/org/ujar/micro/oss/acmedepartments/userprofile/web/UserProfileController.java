@@ -50,7 +50,8 @@ public class UserProfileController {
                        content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
       })
   public ResponseEntity<UserProfile> create(@RequestBody UserProfileDto request) {
-    final var profile = new UserProfile(null, request.email(), request.isActive());
+    final var profile = new UserProfile(null, request.email(),
+        request.firstName(), request.lastName(), request.departmentId());
     return new ResponseEntity<>(profileRepository.save(profile), HttpStatus.CREATED);
   }
 
@@ -106,7 +107,8 @@ public class UserProfileController {
                        content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
       })
   public ResponseEntity<UserProfile> update(@PathVariable final String id, @RequestBody UserProfileDto request) {
-    final var profile = new UserProfile(id, request.email(), request.isActive());
+    final var profile = new UserProfile(id, request.email(),
+        request.firstName(), request.lastName(), request.departmentId());
     return new ResponseEntity<>(profileRepository.save(profile), HttpStatus.OK);
   }
 
