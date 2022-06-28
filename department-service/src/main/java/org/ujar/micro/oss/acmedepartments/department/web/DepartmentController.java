@@ -1,4 +1,4 @@
-package org.ujar.micro.oss.acmedepartments.userprofile.web;
+package org.ujar.micro.oss.acmedepartments.department.web;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -23,22 +23,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.ujar.boot.starter.restful.web.dto.ErrorResponse;
 import org.ujar.boot.starter.restful.web.dto.PageRequestDto;
-import org.ujar.micro.oss.acmedepartments.userprofile.dto.UserProfileDto;
-import org.ujar.micro.oss.acmedepartments.userprofile.entity.UserProfile;
-import org.ujar.micro.oss.acmedepartments.userprofile.repository.UserProfileRepository;
+import org.ujar.micro.oss.acmedepartments.department.dto.DepartmentDto;
+import org.ujar.micro.oss.acmedepartments.department.entity.Department;
+import org.ujar.micro.oss.acmedepartments.department.repository.DepartmentRepository;
 
 @RestController
-@Tag(name = "User profile controller", description = "API for user profiles management")
-@RequestMapping("/api/v1/user-profiles")
+@Tag(name = "User profile controller", description = "API for departments management")
+@RequestMapping("/api/v1/departments")
 @Validated
 @RequiredArgsConstructor
-public class UserProfileController {
+public class DepartmentController {
 
-  private final UserProfileRepository profileRepository;
+  private final DepartmentRepository profileRepository;
 
   @PostMapping
   @Operation(
-      description = "Create user profile.",
+      description = "Create department.",
       responses = {
           @ApiResponse(responseCode = "201",
                        description = "Success"),
@@ -49,15 +49,15 @@ public class UserProfileController {
                        description = "Bad request",
                        content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
       })
-  public ResponseEntity<UserProfile> create(@RequestBody UserProfileDto request) {
-    final var profile = new UserProfile(null, request.email(),
-        request.firstName(), request.lastName(), request.departmentId());
+  public ResponseEntity<Department> create(@RequestBody DepartmentDto request) {
+    final var profile = new Department(null, request.departmentName(),
+        request.departmentAddress(), request.departmentCode());
     return new ResponseEntity<>(profileRepository.save(profile), HttpStatus.CREATED);
   }
 
   @GetMapping("/{id}")
   @Operation(
-      description = "Retrieve user profile by id.",
+      description = "Retrieve department by id.",
       responses = {
           @ApiResponse(responseCode = "200",
                        description = "Success"),
@@ -71,13 +71,13 @@ public class UserProfileController {
                        description = "Not found",
                        content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
       })
-  public ResponseEntity<UserProfile> findById(@PathVariable final String id) {
+  public ResponseEntity<Department> findById(@PathVariable final Long id) {
     return ResponseEntity.of(profileRepository.findById(id));
   }
 
   @GetMapping
   @Operation(
-      description = "Retrieve all user profiles (with pagination).",
+      description = "Retrieve all departments (with pagination).",
       responses = {
           @ApiResponse(responseCode = "200",
                        description = "Success"),
@@ -88,14 +88,14 @@ public class UserProfileController {
                        description = "Bad request",
                        content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
       })
-  public ResponseEntity<Page<UserProfile>> findAll(@ParameterObject @Valid PageRequestDto request) {
+  public ResponseEntity<Page<Department>> findAll(@ParameterObject @Valid PageRequestDto request) {
     final var pageRequest = PageRequest.of(request.getPage(), request.getSize());
     return new ResponseEntity<>(profileRepository.findAll(pageRequest), HttpStatus.OK);
   }
 
   @PutMapping("/{id}")
   @Operation(
-      description = "Update user profile.",
+      description = "Update department.",
       responses = {
           @ApiResponse(responseCode = "200",
                        description = "Success"),
@@ -106,15 +106,15 @@ public class UserProfileController {
                        description = "Bad request",
                        content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
       })
-  public ResponseEntity<UserProfile> update(@PathVariable final String id, @RequestBody UserProfileDto request) {
-    final var profile = new UserProfile(id, request.email(),
-        request.firstName(), request.lastName(), request.departmentId());
+  public ResponseEntity<Department> update(@PathVariable final Long id, @RequestBody DepartmentDto request) {
+    final var profile = new Department(id, request.departmentName(),
+        request.departmentAddress(), request.departmentCode());
     return new ResponseEntity<>(profileRepository.save(profile), HttpStatus.OK);
   }
 
   @DeleteMapping("/{id}")
   @Operation(
-      description = "Delete user profile.",
+      description = "Delete department.",
       responses = {
           @ApiResponse(responseCode = "200",
                        description = "Success"),
@@ -125,7 +125,7 @@ public class UserProfileController {
                        description = "Bad request",
                        content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
       })
-  public HttpStatus delete(@PathVariable String id) {
+  public HttpStatus delete(@PathVariable Long id) {
     profileRepository.deleteById(id);
     return HttpStatus.OK;
   }
