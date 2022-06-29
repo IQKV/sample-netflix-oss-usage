@@ -51,6 +51,7 @@
     <modules>
         <module>user-profile-service</module>
         <module>department-service</module>
+        <module>service-registry</module>
     </modules>
 
     <build>
