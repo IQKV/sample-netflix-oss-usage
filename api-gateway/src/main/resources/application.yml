@@ -1,0 +1,52 @@
+spring :
+  application :
+    name : api-gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: department-service
+          uri: lb://department-service
+          predicates:
+            - Path=/api/v1/departments/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: department-service
+                fallbackuri: forward:/departmentServiceFallback
+
+        - id: user-profile-service
+          uri: lb://user-profile-service
+          predicates:
+            - Path=/api/v1/user-profiles/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: user-profile-service
+                fallbackuri: forward:/userProfileServiceFallback
+
+server :
+  port : ${SERVER_PORT:8080}
+  shutdown : graceful
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL:http://service-registry:8080/eureka/}
+    register-with-eureka : true
+    fetch-registry : true
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 4000
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
