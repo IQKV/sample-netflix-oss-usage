@@ -2,4 +2,4 @@ spring:
   cloud:
     config:
       enabled: false
-      uri: http://localhost:9296
+      uri: http://localhost:3002
