@@ -10,7 +10,7 @@ management :
     enabled-by-default : true
 
 server :
-  port : 3001
+  port : 3002
 
 eureka:
   client:
