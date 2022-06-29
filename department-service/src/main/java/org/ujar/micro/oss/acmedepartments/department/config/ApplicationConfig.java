@@ -3,6 +3,7 @@ package org.ujar.micro.oss.acmedepartments.department.config;
 import javax.sql.DataSource;
 import liquibase.integration.spring.SpringLiquibase;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
@@ -19,6 +20,7 @@ import org.ujar.boot.starter.logbook.LogbookResponseOnStatus;
 @EnableJpaAuditing
 @EnableTransactionManagement
 @EnableSpringDataWebSupport
+@EnableEurekaClient
 public class ApplicationConfig {
 
   @Bean
