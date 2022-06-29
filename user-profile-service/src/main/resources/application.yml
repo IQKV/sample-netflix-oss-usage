@@ -3,7 +3,7 @@ spring :
     name : user-profile-service
   data :
     mongodb :
-      uri :  ${MONGODB_SERVER_URI:mongodb://localhost:27017/userprofiledb}
+      uri :  ${MONGODB_SERVER_URI:mongodb://sa_mongo:sa_mongo@localhost:27017/userprofiledb?authSource=admin}
   devtools :
     add-properties : false
     restart :
@@ -73,3 +73,19 @@ management :
 embedded :
   mongodb :
     enabled : false
+
+ujar:
+  restful-client:
+    connect-timeout : ${RESTFUL_CLIENT_CONNECT_TIMEOUT:1s}
+    read-timeout : ${RESTFUL_CLIENT_READ_TIMEOUT:10s}
+    max-conn-per-route : ${RESTFUL_CLIENT_MAX_CONN_PER_ROUTE:20}
+    max-conn-total : ${RESTFUL_CLIENT_MAX_CONN_TOTAL:2}
+    retry:
+      max-attempts : ${RESTFUL_CLIENT_RETRY_MAX_ATTEMPTS:3}
+      delay : ${RESTFUL_CLIENT_RETRY_DELAY:1000}
+      multiplier : ${RESTFUL_CLIENT_RETRY_MULTIPLIER:1.5}
+      max-delay : ${RESTFUL_CLIENT_RETRY_MAX_DELAY:3000}
+
+  restful-api-resources:
+    department-service-base-url:  ${DEPARTMENT_SERVICE_BASE_URL:http://department-service}
+    department-service-uri:  /api/v1/departments/{id}
