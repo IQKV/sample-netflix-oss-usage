@@ -24,8 +24,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.ujar.boot.starter.restful.web.dto.ErrorResponse;
 import org.ujar.boot.starter.restful.web.dto.PageRequestDto;
 import org.ujar.micro.oss.acmedepartments.userprofile.dto.UserProfileDto;
+import org.ujar.micro.oss.acmedepartments.userprofile.dto.UserProfileWithDepartmentDto;
 import org.ujar.micro.oss.acmedepartments.userprofile.entity.UserProfile;
 import org.ujar.micro.oss.acmedepartments.userprofile.repository.UserProfileRepository;
+import org.ujar.micro.oss.acmedepartments.userprofile.service.UserProfileService;
 
 @RestController
 @Tag(name = "User profile controller", description = "API for user profiles management")
@@ -34,7 +36,7 @@ import org.ujar.micro.oss.acmedepartments.userprofile.repository.UserProfileRepo
 @RequiredArgsConstructor
 public class UserProfileController {
 
-  private final UserProfileRepository profileRepository;
+  private final UserProfileService userProfileService;
 
   @PostMapping
   @Operation(
@@ -52,7 +54,7 @@ public class UserProfileController {
   public ResponseEntity<UserProfile> create(@RequestBody UserProfileDto request) {
     final var profile = new UserProfile(null, request.email(),
         request.firstName(), request.lastName(), request.departmentId());
-    return new ResponseEntity<>(profileRepository.save(profile), HttpStatus.CREATED);
+    return new ResponseEntity<>(userProfileService.saveProfile(profile), HttpStatus.CREATED);
   }
 
   @GetMapping("/{id}")
@@ -71,8 +73,8 @@ public class UserProfileController {
                        description = "Not found",
                        content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
       })
-  public ResponseEntity<UserProfile> findById(@PathVariable final String id) {
-    return ResponseEntity.of(profileRepository.findById(id));
+  public ResponseEntity<UserProfileWithDepartmentDto> findById(@PathVariable final String id) {
+    return ResponseEntity.of(userProfileService.findById(id));
   }
 
   @GetMapping
@@ -90,7 +92,7 @@ public class UserProfileController {
       })
   public ResponseEntity<Page<UserProfile>> findAll(@ParameterObject @Valid PageRequestDto request) {
     final var pageRequest = PageRequest.of(request.getPage(), request.getSize());
-    return new ResponseEntity<>(profileRepository.findAll(pageRequest), HttpStatus.OK);
+    return new ResponseEntity<>(userProfileService.findAll(pageRequest), HttpStatus.OK);
   }
 
   @PutMapping("/{id}")
@@ -109,7 +111,7 @@ public class UserProfileController {
   public ResponseEntity<UserProfile> update(@PathVariable final String id, @RequestBody UserProfileDto request) {
     final var profile = new UserProfile(id, request.email(),
         request.firstName(), request.lastName(), request.departmentId());
-    return new ResponseEntity<>(profileRepository.save(profile), HttpStatus.OK);
+    return new ResponseEntity<>(userProfileService.saveProfile(profile), HttpStatus.OK);
   }
 
   @DeleteMapping("/{id}")
@@ -126,7 +128,7 @@ public class UserProfileController {
                        content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
       })
   public HttpStatus delete(@PathVariable String id) {
-    profileRepository.deleteById(id);
+    userProfileService.deleteById(id);
     return HttpStatus.OK;
   }
 

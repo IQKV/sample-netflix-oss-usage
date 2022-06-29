@@ -14,3 +14,19 @@ spring :
 embedded :
   mongodb :
     enabled : true
+
+ujar:
+  restful-client:
+    connect-timeout : 100ms
+    read-timeout : 100ms
+    max-conn-per-route : 20
+    max-conn-total : 2
+    retry:
+      max-attempts : 3
+      delay : 1000
+      multiplier : 1.5
+      max-delay : 3000
+
+  restful-api-resources:
+    department-service-base-url: http://localhost:${wiremock.server.port}
+    department-service-uri:  /api/v1/departments/{id}
