@@ -50,8 +50,16 @@ logging :
     console : "${spring.application.name} %clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr([%X{transactionId},%X{traceId:-},%X{spanId:-}]){blue}[%thread] %clr(%-5level) %clr(%logger{36}){magenta} - %msg%n"
 
 server :
-  port : ${SERVER_PORT:8080}
+  port : ${SERVER_PORT:8080
   shutdown : graceful
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL:http://service-registry:8080/eureka/}
+    register-with-eureka : true
+    fetch-registry : true
+
 logbook :
   exclude :
     - /actuator/**
