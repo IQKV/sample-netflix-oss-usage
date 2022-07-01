@@ -1,12 +1,19 @@
 spring :
   application :
     name : department-service
+  devtools :
+    add-properties : false
+    restart :
+      enabled : false
+    livereload :
+      enabled : false
+
   datasource :
     type : com.zaxxer.hikari.HikariDataSource
-    driver-class-name : ${DATASOURCE_DRIVER:org.testcontainers.jdbc.ContainerDatabaseDriver}
-    url : ${DATASOURCE_URL:jdbc:tc:mysql:5.7.34://localhost/sa_test_db}
-    username : ${DATASOURCE_USERNAME:sa_test}
-    password : ${DATASOURCE_PASSWORD:sa_test}
+    driver-class-name : ${DATASOURCE_DRIVER:org.h2.Driver}
+    url : ${DATASOURCE_URL:jdbc:h2:mem:sa_test_db}
+    username : ${DATASOURCE_USERNAME:postgres}
+    password : ${DATASOURCE_PASSWORD:postgres}
     hikari :
       pool-name : Hikari
       auto-commit : false
@@ -23,9 +30,12 @@ spring :
       hibernate.cache.use_query_cache : false
       hibernate.generate_statistics : false
     show-sql : false
-  devtools :
-    add-properties : false
-    restart :
-      enabled : false
-    livereload :
-      enabled : false
+
+  zipkin :
+    base-url :  ${ZIPKIN_HOST:http://127.0.0.1:9411/}
+    enabled : false
+
+eureka:
+  client:
+    register-with-eureka : false
+    fetch-registry : false

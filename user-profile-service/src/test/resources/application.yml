@@ -11,9 +11,20 @@ spring :
     mongodb :
       uri :  ${MONGODB_SERVER_URI:mongodb://${embedded.mongodb.host}:${embedded.mongodb.port}/${embedded.mongodb.database}}
 
+  zipkin :
+    base-url :  ${ZIPKIN_HOST:http://127.0.0.1:9411/}
+    enabled : false
+
 embedded :
   mongodb :
     enabled : true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL:http://service-registry:8080/eureka/}
+    register-with-eureka : false
+    fetch-registry : false
 
 ujar:
   restful-client:
