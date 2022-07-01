@@ -1,15 +1,17 @@
 package org.ujar.micro.oss.acmedepartments.userprofile.config.properties;
 
 import java.time.Duration;
-import lombok.Data;
+import lombok.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.ConstructorBinding;
 
-@Data
+@Value
+@ConstructorBinding
 @ConfigurationProperties(prefix = "ujar.restful-client")
 public class RestfulClientProperties {
-  protected Duration connectTimeout;
-  protected Duration readTimeout;
-  protected int maxConnPerRoute;
-  protected int maxConnTotal;
-  protected RetryProperties retry;
+  Duration connectTimeout;
+  Duration readTimeout;
+  int maxConnPerRoute;
+  int maxConnTotal;
+  RetryProperties retry;
 }

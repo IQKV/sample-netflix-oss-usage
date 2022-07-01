@@ -1,12 +1,11 @@
 package org.ujar.micro.oss.acmedepartments.userprofile.service;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.Optional;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 import org.ujar.micro.oss.acmedepartments.userprofile.client.DepartmentServiceClient;
 import org.ujar.micro.oss.acmedepartments.userprofile.dto.UserProfileWithDepartmentDto;
 import org.ujar.micro.oss.acmedepartments.userprofile.entity.UserProfile;
@@ -14,6 +13,7 @@ import org.ujar.micro.oss.acmedepartments.userprofile.repository.UserProfileRepo
 
 @Service
 @AllArgsConstructor
+@SuppressFBWarnings("EI_EXPOSE_REP2")
 public class UserProfileService {
 
   private final UserProfileRepository profileRepository;

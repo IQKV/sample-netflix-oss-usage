@@ -1,0 +1,17 @@
+spring :
+  application :
+    name : hystrix-dashboard
+
+  cloud:
+    config:
+      enabled : false
+      server:
+        enabled : false
+        git :
+          uri : https://github.com/dimdnk/ujar-config-server-example
+          clone-on-start : false
+
+eureka:
+  client:
+    register-with-eureka : false
+    fetch-registry : false
