@@ -1,0 +1,203 @@
+kind: pipeline
+name: CI
+
+type : docker
+
+trigger:
+  branch:
+    - main
+    - develop
+    - feature/*
+  event:
+    - push
+
+volumes:
+  - name: m2cache
+    host:
+      path: /volume1/m2cache
+steps:
+
+  - name: build-and-deploy
+    image: maven:3-openjdk-17-slim
+    volumes:
+      - name: m2cache
+        path: /root/.m2
+    environment :
+      MONGODB_SERVER_URI : mongodb://sa_mongo:sa_mongo@mongo:27017/userprofiledb?authSource=admin
+      DEPLOYER_USERNAME :
+        from_secret : DEPLOYER_USERNAME
+      DEPLOYER_PASSWORD :
+        from_secret : DEPLOYER_PASSWORD
+      SONAR_HOST :
+        from_secret : SONAR_HOST
+      SONAR_TOKEN :
+        from_secret : SONAR_TOKEN
+    commands:
+      - mvn clean compile test-compile -P default -B -s settings.xml -Ddeployer.username=$DEPLOYER_USERNAME -Ddeployer.password=$DEPLOYER_PASSWORD
+      - mvn pmd:check -P default -B -s settings.xml -Ddeployer.username=$DEPLOYER_USERNAME -Ddeployer.password=$DEPLOYER_PASSWORD
+      - mvn com.github.spotbugs:spotbugs-maven-plugin:check -P default -Dspotbugs.xmlOutput=true -Dspotbugs.failOnError=true -Dspotbugs.includeTests=true -B -s settings.xml -Ddeployer.username=$DEPLOYER_USERNAME -Ddeployer.password=$DEPLOYER_PASSWORD
+      - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package org.jacoco:jacoco-maven-plugin:report sonar:sonar -Dsonar.host.url=$SONAR_HOST -Dsonar.login=$SONAR_TOKEN -Dsonar.projectKey=ujar-org:micro-oss-acmedepartments -B -s settings.xml -Ddeployer.username=$DEPLOYER_USERNAME -Ddeployer.password=$DEPLOYER_PASSWORD
+      - mvn deploy -P default -DskipTests=true -Dcheckstyle.skip=true -s settings.xml -Ddeployer.username=$DEPLOYER_USERNAME -Ddeployer.password=$DEPLOYER_PASSWORD
+    when:
+      branch:
+        include:
+          - main
+          - develop
+          - feature/*
+      event:
+        exclude:
+          - pull_request
+
+  - name: docker-build-dev-service-registry
+    image: plugins/docker
+    settings:
+      dockerfile: service-registry/Dockerfile
+      context: ./service-registry/
+      storage_driver: vfs
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+      repo: docker-registry.ujar.org/ujar/micro-oss-acmedepartments-service-registry
+      registry: docker-registry.ujar.org
+      tags :
+        - latest
+    when:
+      branch:
+        include:
+          - main
+          - develop
+          - feature/*
+      event:
+        exclude:
+          - pull_request
+
+
+  - name: docker-build-dev-api-gateway
+    image: plugins/docker
+    settings:
+      dockerfile: api-gateway/Dockerfile
+      context: ./api-gateway/
+      storage_driver: vfs
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+      repo: docker-registry.ujar.org/ujar/micro-oss-acmedepartments-api-gateway
+      registry: docker-registry.ujar.org
+      tags :
+        - latest
+    when:
+      branch:
+        include:
+          - main
+          - develop
+          - feature/*
+      event:
+        exclude:
+          - pull_request
+
+  - name: docker-build-dev-config-server
+    image: plugins/docker
+    settings:
+      dockerfile: config-server/Dockerfile
+      context: ./config-server/
+      storage_driver: vfs
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+      repo: docker-registry.ujar.org/ujar/micro-oss-acmedepartments-config-server
+      registry: docker-registry.ujar.org
+      tags :
+        - latest
+    when:
+      branch:
+        include:
+          - main
+          - develop
+          - feature/*
+      event:
+        exclude:
+          - pull_request
+
+  - name: docker-build-dev-hystrix-dashboard
+    image: plugins/docker
+    settings:
+      dockerfile: hystrix-dashboard/Dockerfile
+      context: ./hystrix-dashboard/
+      storage_driver: vfs
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+      repo: docker-registry.ujar.org/ujar/micro-oss-acmedepartments-hystrix-dashboard
+      registry: docker-registry.ujar.org
+      tags :
+        - latest
+    when:
+      branch:
+        include:
+          - main
+          - develop
+          - feature/*
+      event:
+        exclude:
+          - pull_request
+
+  - name: docker-build-dev-department-service
+    image: plugins/docker
+    settings:
+      dockerfile: department-service/Dockerfile
+      context: ./department-service/
+      storage_driver: vfs
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+      repo: docker-registry.ujar.org/ujar/micro-oss-acmedepartments-department-service
+      registry: docker-registry.ujar.org
+      tags :
+        - latest
+    when:
+      branch:
+        include:
+          - main
+          - develop
+          - feature/*
+      event:
+        exclude:
+          - pull_request
+
+  - name: docker-build-dev-user-profile-service
+    image: plugins/docker
+    settings:
+      dockerfile: user-profile-service/Dockerfile
+      context: ./user-profile-service/
+      storage_driver: vfs
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+      repo: docker-registry.ujar.org/ujar/micro-oss-acmedepartments-user-profile-service
+      registry: docker-registry.ujar.org
+      tags :
+        - latest
+    when:
+      branch:
+        include:
+          - main
+          - develop
+          - feature/*
+      event:
+        exclude:
+          - pull_request
+
+services:
+  - name: mongo
+    image: mongo:5.0-focal
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: sa_mongo
+      MONGO_INITDB_ROOT_PASSWORD: sa_mongo
+      MONGO_INITDB_DATABASE: userprofiledb
+

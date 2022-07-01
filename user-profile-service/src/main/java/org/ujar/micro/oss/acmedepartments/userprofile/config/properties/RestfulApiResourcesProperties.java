@@ -1,11 +1,13 @@
 package org.ujar.micro.oss.acmedepartments.userprofile.config.properties;
 
-import lombok.Data;
+import lombok.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.ConstructorBinding;
 
-@Data
+@Value
+@ConstructorBinding
 @ConfigurationProperties(prefix = "ujar.restful-api-resources")
 public class RestfulApiResourcesProperties {
-  private String departmentServiceBaseUrl;
-  private String departmentServiceUri;
+  String departmentServiceBaseUrl;
+  String departmentServiceUri;
 }

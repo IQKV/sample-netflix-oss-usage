@@ -1,0 +1,20 @@
+spring :
+  application :
+    name : hystrix-dashboard
+  config :
+    import: configserver:${CONFIGSERVER_IMPORT:http://localhost:3002}
+
+server :
+  port : ${SERVER_PORT:8080}
+  shutdown : graceful
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL:http://service-registry:8080/eureka/}
+    register-with-eureka : true
+    fetch-registry : true

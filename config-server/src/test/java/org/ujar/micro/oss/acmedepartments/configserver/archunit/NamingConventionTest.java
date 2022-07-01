@@ -5,7 +5,6 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,10 +25,4 @@ public class NamingConventionTest {
           .or().areAnnotatedWith(Controller.class).or().areAnnotatedWith(RestController.class)
           .should().resideInAnyPackage("..controller..", "..web..");
 
-  @ArchTest
-  private final ArchRule configurationShouldBeInConfigPackage =
-      classes()
-          .that().haveSimpleNameContaining("Config")
-          .or().areAnnotatedWith(Configuration.class)
-          .should().resideInAPackage("..config..");
 }

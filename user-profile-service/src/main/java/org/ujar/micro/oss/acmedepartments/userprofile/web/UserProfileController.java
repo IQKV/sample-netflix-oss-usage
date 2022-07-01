@@ -26,7 +26,6 @@ import org.ujar.boot.starter.restful.web.dto.PageRequestDto;
 import org.ujar.micro.oss.acmedepartments.userprofile.dto.UserProfileDto;
 import org.ujar.micro.oss.acmedepartments.userprofile.dto.UserProfileWithDepartmentDto;
 import org.ujar.micro.oss.acmedepartments.userprofile.entity.UserProfile;
-import org.ujar.micro.oss.acmedepartments.userprofile.repository.UserProfileRepository;
 import org.ujar.micro.oss.acmedepartments.userprofile.service.UserProfileService;
 
 @RestController
