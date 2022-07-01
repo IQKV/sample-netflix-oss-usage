@@ -1,3 +1,7 @@
+spring :
+  config :
+    import: configserver:${CONFIGSERVER_IMPORT:http://localhost:3002}
+
 server :
   port : 3001
   shutdown : graceful
