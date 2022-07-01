@@ -16,6 +16,10 @@ spring :
   lifecycle :
     timeout-per-shutdown-phase : ${TIMEOUT_PER_SHUTDOWN:20s}
 
+  zipkin :
+    base-url :  ${ZIPKIN_HOST:http://127.0.0.1:9411/}
+    enabled : true
+
 logging :
   level :
     ROOT : INFO
