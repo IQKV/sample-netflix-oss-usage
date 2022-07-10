@@ -28,7 +28,7 @@ import org.ujar.micro.oss.acmedepartments.department.entity.Department;
 import org.ujar.micro.oss.acmedepartments.department.repository.DepartmentRepository;
 
 @RestController
-@Tag(name = "User profile controller", description = "API for departments management")
+@Tag(name = "Department controller", description = "API for departments management")
 @RequestMapping("/api/v1/departments")
 @Validated
 @RequiredArgsConstructor
