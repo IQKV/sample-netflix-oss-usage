@@ -1,3 +1,15 @@
+git :
+  commit : '@git.commit.id@'
+  build_time : '@git.build.time@'
+
+info :
+  app :
+    name : @project.name@
+    description : @project.description@
+    version : @project.version@
+    git_commit : ${git.commit}
+    build_time : ${git.build_time}
+
 spring :
   application :
     name : api-gateway
@@ -48,8 +60,28 @@ hystrix:
             timeoutInMilliseconds: 4000
 
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream
+management :
+  server :
+    add-application-context-header : true
+  endpoints :
+    enabled-by-default : false
+    web :
+      path-mapping :
+        health : actuator/health
+        prometheus : metrics
+        info : info
+        hystrix : hystrix.stream
+      base-path : /
+      exposure :
+        include : health, prometheus, info, hystrix.stream
+  endpoint :
+    health :
+      enabled : true
+      show-details : always
+    prometheus :
+      enabled : true
+    info :
+      enabled : true
+    hystrix :
+      stream :
+        enabled : true
