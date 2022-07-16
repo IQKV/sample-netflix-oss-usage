@@ -1,14 +1,12 @@
+eureka :
+  client :
+    serviceUrl :
+      defaultZone : http://localhost:3000/eureka/
+server :
+  port : 3003
+  shutdown : graceful
 spring :
   application :
     name : hystrix-dashboard
   config :
-    import: configserver:${CONFIGSERVER_IMPORT:http://localhost:3002}
-
-server :
-  port : 3003
-  shutdown : graceful
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:3000/eureka/
+    import : configserver:${CONFIGSERVER_IMPORT:http://localhost:3002}
