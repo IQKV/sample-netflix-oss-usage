@@ -1,3 +1,7 @@
+build :
+  description : '@project.description@'
+  relative-path : ${SWAGGER_RELATIVE_PATH:}
+  version : '@project.version@'
 
 git :
   commit : '@git.commit.id@'
@@ -5,9 +9,9 @@ git :
 
 info :
   app :
-    name : @project.name@
-    description : @project.description@
-    version : @project.version@
+    name : '@project.name@'
+    description : '@project.description@'
+    version : '@project.version@'
     git_commit : ${git.commit}
     build_time : ${git.build_time}
 
@@ -33,6 +37,9 @@ eureka :
     fetch-registry : true
 
 management :
+  info :
+    env :
+      enabled : true
   server :
     add-application-context-header : true
   endpoints :
