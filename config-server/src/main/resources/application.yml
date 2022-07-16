@@ -1,3 +1,8 @@
+build :
+  version : @project.version@
+  description : @project.description@
+  relative-path : ${SWAGGER_RELATIVE_PATH:}
+
 git :
   commit : '@git.commit.id@'
   build_time : '@git.build.time@'
@@ -13,20 +18,20 @@ info :
 spring :
   application :
     name : config-server
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/dimdnk/ujar-config-server-example
-          clone-on-start: true
+  cloud :
+    config :
+      server :
+        git :
+          uri : https://github.com/dimdnk/ujar-config-server-example
+          clone-on-start : true
 server :
   port : ${SERVER_PORT:8080}
   shutdown : graceful
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_SERVER_URL:http://service-registry:8080/eureka/}
+eureka :
+  client :
+    serviceUrl :
+      defaultZone : ${EUREKA_SERVER_URL:http://service-registry:8080/eureka/}
     register-with-eureka : true
     fetch-registry : true
 

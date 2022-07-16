@@ -1,3 +1,8 @@
+build :
+  version : @project.version@
+  description : @project.description@
+  relative-path : ${SWAGGER_RELATIVE_PATH:}
+
 git :
   commit : '@git.commit.id@'
   build_time : '@git.build.time@'
@@ -15,7 +20,7 @@ spring :
     name : user-profile-service
   data :
     mongodb :
-      uri :  ${MONGODB_SERVER_URI:mongodb://sa_mongo:sa_mongo@localhost:27017/userprofiledb?authSource=admin}
+      uri : ${MONGODB_SERVER_URI:mongodb://sa_mongo:sa_mongo@localhost:27017/userprofiledb?authSource=admin}
   devtools :
     add-properties : false
     restart :
@@ -29,7 +34,7 @@ spring :
     timeout-per-shutdown-phase : ${TIMEOUT_PER_SHUTDOWN:20s}
 
   zipkin :
-    base-url :  ${ZIPKIN_HOST:http://127.0.0.1:9411/}
+    base-url : ${ZIPKIN_HOST:http://127.0.0.1:9411/}
     enabled : true
 
 logging :
@@ -42,10 +47,10 @@ server :
   port : ${SERVER_PORT:8080}
   shutdown : graceful
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_SERVER_URL:http://service-registry:8080/eureka/}
+eureka :
+  client :
+    serviceUrl :
+      defaultZone : ${EUREKA_SERVER_URL:http://service-registry:8080/eureka/}
     register-with-eureka : true
     fetch-registry : true
 
@@ -95,18 +100,18 @@ embedded :
   mongodb :
     enabled : false
 
-ujar:
-  restful-client:
+ujar :
+  restful-client :
     connect-timeout : ${RESTFUL_CLIENT_CONNECT_TIMEOUT:1s}
     read-timeout : ${RESTFUL_CLIENT_READ_TIMEOUT:10s}
     max-conn-per-route : ${RESTFUL_CLIENT_MAX_CONN_PER_ROUTE:20}
     max-conn-total : ${RESTFUL_CLIENT_MAX_CONN_TOTAL:2}
-    retry:
+    retry :
       max-attempts : ${RESTFUL_CLIENT_RETRY_MAX_ATTEMPTS:3}
       delay : ${RESTFUL_CLIENT_RETRY_DELAY:1000}
       multiplier : ${RESTFUL_CLIENT_RETRY_MULTIPLIER:1.5}
       max-delay : ${RESTFUL_CLIENT_RETRY_MAX_DELAY:3000}
 
-  restful-api-resources:
-    department-service-base-url:  ${DEPARTMENT_SERVICE_BASE_URL:http://department-service}
-    department-service-uri:  /api/v1/departments/{id}
+  restful-api-resources :
+    department-service-base-url : ${DEPARTMENT_SERVICE_BASE_URL:http://department-service}
+    department-service-uri : /api/v1/departments/{id}
