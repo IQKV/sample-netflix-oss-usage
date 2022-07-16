@@ -1,3 +1,8 @@
+build :
+  version : @project.version@
+  description : @project.description@
+  relative-path : ${SWAGGER_RELATIVE_PATH:}
+
 git :
   commit : '@git.commit.id@'
   build_time : '@git.build.time@'
@@ -15,49 +20,49 @@ spring :
     name : api-gateway
 
   config :
-    import: configserver:${CONFIGSERVER_IMPORT:http://localhost:3002}
+    import : configserver:${CONFIGSERVER_IMPORT:http://localhost:3002}
 
-  cloud:
-    gateway:
-      routes:
-        - id: department-service
-          uri: lb://department-service
-          predicates:
+  cloud :
+    gateway :
+      routes :
+        - id : department-service
+          uri : lb://department-service
+          predicates :
             - Path=/api/v1/departments/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: department-service
-                fallbackuri: forward:/departmentServiceFallback
+          filters :
+            - name : CircuitBreaker
+              args :
+                name : department-service
+                fallbackuri : forward:/departmentServiceFallback
 
-        - id: user-profile-service
-          uri: lb://user-profile-service
-          predicates:
+        - id : user-profile-service
+          uri : lb://user-profile-service
+          predicates :
             - Path=/api/v1/user-profiles/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: user-profile-service
-                fallbackuri: forward:/userProfileServiceFallback
+          filters :
+            - name : CircuitBreaker
+              args :
+                name : user-profile-service
+                fallbackuri : forward:/userProfileServiceFallback
 
 server :
   port : ${SERVER_PORT:8080}
   shutdown : graceful
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_SERVER_URL:http://service-registry:8080/eureka/}
+eureka :
+  client :
+    serviceUrl :
+      defaultZone : ${EUREKA_SERVER_URL:http://service-registry:8080/eureka/}
     register-with-eureka : true
     fetch-registry : true
 
-hystrix:
-  command:
-    fallbackcmd:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 4000
+hystrix :
+  command :
+    fallbackcmd :
+      execution :
+        isolation :
+          thread :
+            timeoutInMilliseconds : 4000
 
 
 management :
