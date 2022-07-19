@@ -36,6 +36,11 @@ eureka :
     fetch-registry : true
 
 management :
+  health :
+    livenessstate :
+      enabled : true
+    readinessstate :
+      enabled : true
   info :
     env :
       enabled : true

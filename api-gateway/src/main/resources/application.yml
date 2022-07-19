@@ -66,6 +66,11 @@ hystrix :
 
 
 management :
+  health :
+    livenessstate :
+      enabled : true
+    readinessstate :
+      enabled : true
   server :
     add-application-context-header : true
   endpoints :
