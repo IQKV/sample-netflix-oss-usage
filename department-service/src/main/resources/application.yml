@@ -86,7 +86,6 @@ logbook :
     - /v3/**
     - /swagger-ui/**
     - /swagger-resources/**
-    - /metrics
   filter :
     enabled : true
   format :
@@ -101,6 +100,11 @@ logbook :
   minimum-status : ${MINIMUM_STATUS_LOG_BODY:400}
 
 management :
+  health :
+    livenessstate :
+      enabled : true
+    readinessstate :
+      enabled : true
   info :
     env :
       enabled : true
