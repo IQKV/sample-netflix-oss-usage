@@ -29,14 +29,13 @@ import org.ujar.micro.oss.acmedepartments.department.repository.DepartmentReposi
 
 @RestController
 @Tag(name = "Department controller", description = "API for departments management")
-@RequestMapping("/api/v1/departments")
 @Validated
 @RequiredArgsConstructor
 public class DepartmentController {
 
   private final DepartmentRepository profileRepository;
 
-  @PostMapping
+  @PostMapping("/api/v1/departments")
   @Operation(
       description = "Create department.",
       responses = {
@@ -55,7 +54,7 @@ public class DepartmentController {
     return new ResponseEntity<>(profileRepository.save(profile), HttpStatus.CREATED);
   }
 
-  @GetMapping("/{id}")
+  @GetMapping("/api/v1/departments/{id}")
   @Operation(
       description = "Retrieve department by id.",
       responses = {
@@ -75,7 +74,7 @@ public class DepartmentController {
     return ResponseEntity.of(profileRepository.findById(id));
   }
 
-  @GetMapping
+  @GetMapping("/api/v1/departments")
   @Operation(
       description = "Retrieve all departments (with pagination).",
       responses = {
@@ -93,7 +92,7 @@ public class DepartmentController {
     return new ResponseEntity<>(profileRepository.findAll(pageRequest), HttpStatus.OK);
   }
 
-  @PutMapping("/{id}")
+  @PutMapping("/api/v1/departments/{id}")
   @Operation(
       description = "Update department.",
       responses = {
@@ -112,7 +111,7 @@ public class DepartmentController {
     return new ResponseEntity<>(profileRepository.save(profile), HttpStatus.OK);
   }
 
-  @DeleteMapping("/{id}")
+  @DeleteMapping("/api/v1/departments/{id}")
   @Operation(
       description = "Delete department.",
       responses = {
