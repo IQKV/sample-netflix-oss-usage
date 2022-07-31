@@ -30,14 +30,13 @@ import org.ujar.micro.oss.acmedepartments.userprofile.service.UserProfileService
 
 @RestController
 @Tag(name = "User profile controller", description = "API for user profiles management")
-@RequestMapping("/api/v1/user-profiles")
 @Validated
 @RequiredArgsConstructor
 public class UserProfileController {
 
   private final UserProfileService userProfileService;
 
-  @PostMapping
+  @PostMapping("/api/v1/user-profiles")
   @Operation(
       description = "Create user profile.",
       responses = {
@@ -56,7 +55,7 @@ public class UserProfileController {
     return new ResponseEntity<>(userProfileService.saveProfile(profile), HttpStatus.CREATED);
   }
 
-  @GetMapping("/{id}")
+  @GetMapping("/api/v1/user-profiles/{id}")
   @Operation(
       description = "Retrieve user profile by id.",
       responses = {
@@ -76,7 +75,7 @@ public class UserProfileController {
     return ResponseEntity.of(userProfileService.findById(id));
   }
 
-  @GetMapping
+  @GetMapping("/api/v1/user-profiles")
   @Operation(
       description = "Retrieve all user profiles (with pagination).",
       responses = {
@@ -94,7 +93,7 @@ public class UserProfileController {
     return new ResponseEntity<>(userProfileService.findAll(pageRequest), HttpStatus.OK);
   }
 
-  @PutMapping("/{id}")
+  @PutMapping("/api/v1/user-profiles/{id}")
   @Operation(
       description = "Update user profile.",
       responses = {
@@ -113,7 +112,7 @@ public class UserProfileController {
     return new ResponseEntity<>(userProfileService.saveProfile(profile), HttpStatus.OK);
   }
 
-  @DeleteMapping("/{id}")
+  @DeleteMapping("/api/v1/user-profiles/{id}")
   @Operation(
       description = "Delete user profile.",
       responses = {
