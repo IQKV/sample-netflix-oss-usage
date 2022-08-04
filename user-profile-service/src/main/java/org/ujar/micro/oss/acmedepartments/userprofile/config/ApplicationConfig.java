@@ -21,7 +21,7 @@ import org.ujar.micro.oss.acmedepartments.userprofile.config.properties.RestfulC
 @EnableTransactionManagement
 @EnableEurekaClient
 @EnableConfigurationProperties({RestfulClientProperties.class, RestfulApiResourcesProperties.class})
-public class ApplicationConfig {
+class ApplicationConfig {
 
   @Bean
   DepartmentServiceClient departmentServiceClient(
