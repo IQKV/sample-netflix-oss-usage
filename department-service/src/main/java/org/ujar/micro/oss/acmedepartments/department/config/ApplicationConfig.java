@@ -21,7 +21,7 @@ import org.ujar.boot.starter.logbook.LogbookResponseOnStatus;
 @EnableTransactionManagement
 @EnableSpringDataWebSupport
 @EnableEurekaClient
-public class ApplicationConfig {
+class ApplicationConfig {
 
   @Bean
   SpringLiquibase liquibase(@Autowired DataSource dataSource) {
