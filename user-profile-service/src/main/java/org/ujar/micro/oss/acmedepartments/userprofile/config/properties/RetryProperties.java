@@ -1,11 +1,29 @@
 package org.ujar.micro.oss.acmedepartments.userprofile.config.properties;
 
-import lombok.Data;
+import org.springframework.boot.context.properties.ConstructorBinding;
+import org.springframework.validation.annotation.Validated;
 
-@Data
-public class RetryProperties {
-  private int maxAttempts;
-  private long delay;
-  private double multiplier;
-  private long maxDelay;
+@Validated
+@ConstructorBinding
+public record RetryProperties(
+    int maxAttempts,
+    long delay,
+    double multiplier,
+    long maxDelay) {
+
+  public int getMaxAttempts() {
+    return maxAttempts();
+  }
+
+  public long getDelay() {
+    return delay();
+  }
+
+  public double getMultiplier() {
+    return multiplier();
+  }
+
+  public long getMaxDelay() {
+    return maxDelay();
+  }
 }
