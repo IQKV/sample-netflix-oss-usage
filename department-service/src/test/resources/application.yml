@@ -1,11 +1,13 @@
-build:
-  description: '@project.description@'
-  relative-path: ''
-  version: '@project.version@'
+build :
+  description : '@project.description@'
+  relative-path : ''
+  version : '@project.version@'
 
 spring :
   application :
     name : department-service
+  liquibase :
+    change-log : migrations/master.xml
   devtools :
     add-properties : false
     restart :
@@ -26,7 +28,7 @@ spring :
     hibernate :
       ddl-auto : none
       naming :
-        physical-strategy : org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        physical-strategy : org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
         implicit-strategy : org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
     open-in-view : true
     properties :
@@ -37,10 +39,10 @@ spring :
     show-sql : false
 
   zipkin :
-    base-url :  ${ZIPKIN_HOST:http://127.0.0.1:9411/}
+    base-url : ${ZIPKIN_HOST:http://127.0.0.1:9411/}
     enabled : false
 
-eureka:
-  client:
+eureka :
+  client :
     register-with-eureka : false
     fetch-registry : false
