@@ -20,7 +20,10 @@ management :
 server :
   port : 3004
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:3000/eureka/
+eureka :
+  client :
+    serviceUrl :
+      defaultZone : http://localhost:3000/eureka/
+
+springdoc :
+  show-actuator : true

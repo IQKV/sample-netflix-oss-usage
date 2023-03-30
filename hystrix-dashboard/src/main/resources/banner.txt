@@ -6,3 +6,4 @@ ${AnsiColor.GREEN}  \__,_|  \____/   \__,_| |_|
 ${AnsiColor.BLUE} ===============================
 ${AnsiColor.BLUE} Hystrix Dashboard
 ${AnsiColor.BLUE} ===============================
+${AnsiColor.BLACK}

@@ -4,7 +4,7 @@ build :
   version : '@project.version@'
 
 git :
-  commit : '@git.commit.id@'
+  commit : '@git.commit.id.abbrev@'
   build_time : '@git.build.time@'
 
 info :
@@ -18,6 +18,8 @@ info :
 spring :
   application :
     name : department-service
+  liquibase :
+    change-log : migrations/master.xml
   datasource :
     type : com.zaxxer.hikari.HikariDataSource
     url : ${DATASOURCE_URL:jdbc:mysql://localhost:3306/sa_test_db?serverTimezone=UTC}
@@ -31,7 +33,7 @@ spring :
     hibernate :
       ddl-auto : none
       naming :
-        physical-strategy : org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        physical-strategy : org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
         implicit-strategy : org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
     open-in-view : true
     properties :
@@ -67,7 +69,6 @@ spring :
 logging :
   level :
     ROOT : ${LOGGING_LEVEL_ROOT:INFO}
-    org.zalando.logbook.Logbook : TRACE
 
 server :
   port : ${SERVER_PORT:8080
@@ -79,25 +80,6 @@ eureka :
       defaultZone : ${EUREKA_SERVER_URL:http://service-registry:8080/eureka/}
     register-with-eureka : true
     fetch-registry : true
-
-logbook :
-  exclude :
-    - /actuator/**
-    - /v3/**
-    - /swagger-ui/**
-    - /swagger-resources/**
-  filter :
-    enabled : true
-  format :
-    style : json
-  obfuscate :
-    headers :
-      - Authorization
-      - X-Secret
-    parameters :
-      - access_token
-      - password
-  minimum-status : ${MINIMUM_STATUS_LOG_BODY:400}
 
 management :
   health :
@@ -127,7 +109,7 @@ management :
       enabled : true
 
 springdoc :
-  show-actuator : true
+  show-actuator : false
   swagger-ui :
     config-url : ${SWAGGER_UI_RELATIVE_PATH:/}v3/api-docs/swagger-config
     url : ${SWAGGER_UI_RELATIVE_PATH:/}v3/api-docs

@@ -1,7 +1,5 @@
 ## [ACME Corp.] Departments and User Profile Microservices 
 
-[![Build Status](https://drone.ujar.org/api/badges/ujar-org/micro-oss-acmedepartments/status.svg)](https://drone.ujar.org/ujar-org/micro-oss-acmedepartments)
-[![Quality Gate Status](https://sonarqube.ujar.org/api/project_badges/measure?project=ujar-org%3Amicro-oss-acmedepartments&metric=alert_status&token=3a8d8d7df2b217dc17b8315db108c723e22af0ab)](https://sonarqube.ujar.org/dashboard?id=ujar-org%3Amicro-oss-acmedepartments)
 
 Minimal microservices example demo - using Spring Cloud / Netflix OSS Project.
 
@@ -11,11 +9,11 @@ with department information.
 
 ### Technology stack
 
-Java 17, Maven 3, Spring Boot 2.7, Spring Cloud 2021.0.3
-mongo:5.0, mysql:5.7.34, zipkin-slim:2.23.
+Java 19, Maven 3, Spring Boot 2.7, Spring Cloud 2021.0.3
+mongo:5.0, mysql:5.7.41, zipkin-slim:2.23.
 
 _Including utils:_ liquibase, WireMock, Mongodb & Mysql testcontainers, docker-compose._dev_.yml,
-logbook, micrometer, _checkstyle_ configuration, SpotBugs, PMD etc.
+micrometer, _checkstyle_ configuration, SpotBugs, PMD etc.
 
 This sample project specifically demonstrates the following features using the Spring Cloud ecosystem.
 
@@ -51,7 +49,7 @@ docker-compose -f docker-compose.dev.yml up -d
 The code follows [Google Code Conventions](https://google.github.io/styleguide/javaguide.html). Code
 quality is measured by:
 
-- [Sonarqube](https://sonarqube.ujar.org/dashboard?id=ujar-org%3Amicro-oss-acmedepartments)
+- Sonarqube
 - [PMD](https://pmd.github.io/)
 - [CheckStyle](https://checkstyle.sourceforge.io/)
 - [SpotBugs](https://spotbugs.github.io/)
@@ -61,5 +59,18 @@ quality is measured by:
 This project has standard JUnit tests. To run them execute this command:
 
 ```text
-./mvnw test -P testcontainers-support
+./mvnw verify -P testcontainers-support
 ```
+
+## Versioning
+
+Project uses a three-segment [CalVer](https://calver.org/) scheme, with a short year in the major version slot, short month in the minor version slot, and micro/patch version in the third
+and final slot.
+
+```
+YY.MM.MICRO
+```
+
+1. **YY** - short year - 6, 16, 106
+1. **MM** - short month - 1, 2 ... 11, 12
+1. **MICRO** -  "patch" segment
