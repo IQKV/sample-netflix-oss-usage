@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>department-service</artifactId>
-    <version>0.9.0-SNAPSHOT</version>
+    <version>23.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>department-service</name>
@@ -11,21 +11,32 @@
 
 
     <parent>
-        <groupId>org.ujar.micro.oss.acmedepartments</groupId>
-        <artifactId>acmedepartments</artifactId>
-        <version>0.9.0-SNAPSHOT</version>
+        <groupId>org.ujar.sample-acme-mix-cloud-netflix</groupId>
+        <artifactId>acme-mix-cloud-netflix</artifactId>
+        <version>23.0.0-SNAPSHOT</version>
     </parent>
 
     <properties>
-        <java.version>17</java.version>
+        <java.version>19</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <sonar.exclusions>**/*Application.java</sonar.exclusions>
         <sonar.coverage.exclusions>**/*Config*.java,**/*Properties.java,**/*Test.java,**/Test*.java</sonar.coverage.exclusions>
-        <start-class>org.ujar.micro.oss.acmedepartments.department.DepartmentServiceApplication</start-class>
+        <checkstyle.skip>false</checkstyle.skip>
+        <maven.gitcommitid.skip>false</maven.gitcommitid.skip>
+        <start-class>org.ujar.acmecloudnetflix.department.DepartmentApplication</start-class>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -41,27 +52,40 @@
             <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.ujar.boot</groupId>
-            <artifactId>ujar-boot-starter-logbook</artifactId>
-            <version>${project.parent.version}</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-sleuth-brave</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.ujar.boot</groupId>
-            <artifactId>ujar-boot-starter-cache</artifactId>
-            <version>${project.parent.version}</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-otel-autoconfigure</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.ujar.boot</groupId>
-            <artifactId>ujar-boot-starter-restful</artifactId>
-            <version>${project.parent.version}</version>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-exporter-otlp</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.ujar.sample-acme-mix-cloud-netflix</groupId>
+            <artifactId>boot-starter-cache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ujar.sample-acme-mix-cloud-netflix</groupId>
+            <artifactId>boot-starter-restful</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>net.logstash.logback</groupId>
@@ -70,10 +94,6 @@
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.liquibase.ext</groupId>
-            <artifactId>liquibase-hibernate5</artifactId>
         </dependency>
 
         <dependency>
@@ -86,10 +106,6 @@
             <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>annotations</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -120,6 +136,7 @@
                 <dependency>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-devtools</artifactId>
+                    <scope>runtime</scope>
                 </dependency>
             </dependencies>
         </profile>
@@ -164,8 +181,20 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>
             </plugin>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+            <plugin>
                 <groupId>io.github.git-commit-id</groupId>
                 <artifactId>git-commit-id-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

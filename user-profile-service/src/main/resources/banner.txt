@@ -6,3 +6,4 @@ ${AnsiColor.GREEN}  \__,_|  \____/   \__,_| |_|
 ${AnsiColor.BLUE} ===============================
 ${AnsiColor.BLUE}  User Profile Service
 ${AnsiColor.BLUE} ===============================
+${AnsiColor.BLACK}

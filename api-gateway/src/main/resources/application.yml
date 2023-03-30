@@ -1,10 +1,11 @@
-build:
-  description: '@project.description@'
-  relative-path: ${SWAGGER_UI_RELATIVE_PATH:}
-  version: '@project.version@'
+
+build :
+  description : '@project.description@'
+  relative-path : ${SWAGGER_UI_RELATIVE_PATH:}
+  version : '@project.version@'
 
 git :
-  commit : '@git.commit.id@'
+  commit : '@git.commit.id.abbrev@'
   build_time : '@git.build.time@'
 
 info :

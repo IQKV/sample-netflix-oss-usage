@@ -1,21 +1,21 @@
-build:
-  description: '@project.description@'
-  relative-path: ''
-  version: '@project.version@'
+build :
+  description : '@project.description@'
+  relative-path : ''
+  version : '@project.version@'
 
 spring :
   application :
     name : config-server
-  cloud:
-    config:
+  cloud :
+    config :
       enabled : false
-      server:
+      server :
         enabled : false
         git :
           uri : https://github.com/dimdnk/ujar-config-server-example
           clone-on-start : false
 
-eureka:
-  client:
+eureka :
+  client :
     register-with-eureka : false
     fetch-registry : false
