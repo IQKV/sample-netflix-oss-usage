@@ -1,13 +1,13 @@
-build:
-  description: '@project.description@'
-  relative-path: ''
-  version: '@project.version@'
+build :
+  description : '@project.description@'
+  relative-path : ''
+  version : '@project.version@'
 
 spring :
   application :
     name : service-registry
 
-eureka:
-  client:
+eureka :
+  client :
     register-with-eureka : false
     fetch-registry : false
