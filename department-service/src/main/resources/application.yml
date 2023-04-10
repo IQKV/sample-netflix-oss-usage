@@ -22,9 +22,9 @@ spring :
     change-log : migrations/master.xml
   datasource :
     type : com.zaxxer.hikari.HikariDataSource
-    url : ${DATASOURCE_URL:jdbc:mysql://localhost:3306/sa_test_db?serverTimezone=UTC}
-    username : ${DATASOURCE_USERNAME:sa_test}
-    password : ${DATASOURCE_PASSWORD:sa_test}
+    url : ${DATASOURCE_URL:jdbc:mysql://localhost:3306/svc_testing_db?serverTimezone=UTC}
+    username : ${DATASOURCE_USERNAME:svc_testing}
+    password : ${DATASOURCE_PASSWORD:svc_testing}
     driver-class-name : ${DATASOURCE_DRIVER:com.mysql.cj.jdbc.Driver}
     hikari :
       pool-name : Hikari
