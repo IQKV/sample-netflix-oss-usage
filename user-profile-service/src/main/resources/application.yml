@@ -20,7 +20,7 @@ spring :
     name : user-profile-service
   data :
     mongodb :
-      uri : ${MONGODB_SERVER_URI:mongodb://sa_mongo:sa_mongo@localhost:27017/userprofiledb?authSource=admin}
+      uri : ${MONGODB_SERVER_URI:mongodb://svc_testing_mongo:svc_testing_mongo@localhost:27017/userprofiledb?authSource=admin}
   devtools :
     add-properties : false
     restart :
