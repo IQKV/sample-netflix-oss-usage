@@ -51,7 +51,7 @@
         <vladmihalcea.hibernate-types.version>2.21.1</vladmihalcea.hibernate-types.version>
         <testcontainers.version>1.17.6</testcontainers.version>
         <javax-servlet-api.version>4.0.1</javax-servlet-api.version>
-        <spring-cloud-dependencies.version>2021.0.6</spring-cloud-dependencies.version>
+        <spring-cloud-dependencies.version>2022.0.2</spring-cloud-dependencies.version>
         <spring-cloud-sleuth-otel.version>1.1.2</spring-cloud-sleuth-otel.version>
         <opentelemetry-exporter-otlp.version>1.24.0</opentelemetry-exporter-otlp.version>
         <springdoc.version>1.6.14</springdoc.version>
