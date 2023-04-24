@@ -192,7 +192,9 @@ steps :
       repo : docker-registry.continuousdelivery.store/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/service-registry
       registry : docker-registry.continuousdelivery.store
       force_tag : true
-      build_args : BUILD_VERSION=${DRONE_COMMIT}
+      build_args :
+        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_BRANCH:22}
     when :
@@ -215,7 +217,9 @@ steps :
       repo : docker-registry.continuousdelivery.store/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/api-gateway
       registry : docker-registry.continuousdelivery.store
       force_tag : true
-      build_args : BUILD_VERSION=${DRONE_COMMIT}
+      build_args :
+        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_BRANCH:22}
     when :
@@ -238,7 +242,9 @@ steps :
       repo : docker-registry.continuousdelivery.store/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/config-server
       registry : docker-registry.continuousdelivery.store
       force_tag : true
-      build_args : BUILD_VERSION=${DRONE_COMMIT}
+      build_args :
+        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_BRANCH:22}
     when :
@@ -261,7 +267,9 @@ steps :
       repo : docker-registry.continuousdelivery.store/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/hystrix-dashboard
       registry : docker-registry.continuousdelivery.store
       force_tag : true
-      build_args : BUILD_VERSION=${DRONE_COMMIT}
+      build_args :
+        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_BRANCH:22}
     when :
@@ -284,7 +292,9 @@ steps :
       repo : docker-registry.continuousdelivery.store/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/department-service
       registry : docker-registry.continuousdelivery.store
       force_tag : true
-      build_args : BUILD_VERSION=${DRONE_COMMIT}
+      build_args :
+        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_BRANCH:22}
     when :
@@ -307,7 +317,9 @@ steps :
       repo : docker-registry.continuousdelivery.store/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/user-profile-service
       registry : docker-registry.continuousdelivery.store
       force_tag : true
-      build_args : BUILD_VERSION=${DRONE_COMMIT}
+      build_args :
+        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_BRANCH:22}
     when :
@@ -330,7 +342,9 @@ steps :
       repo : docker-registry.continuousdelivery.store/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/service-registry
       registry : docker-registry.continuousdelivery.store
       force_tag : true
-      build_args : BUILD_VERSION=${DRONE_COMMIT}
+      build_args :
+        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_TAG}
         - "latest"
@@ -353,7 +367,9 @@ steps :
       repo : docker-registry.continuousdelivery.store/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/api-gateway
       registry : docker-registry.continuousdelivery.store
       force_tag : true
-      build_args : BUILD_VERSION=${DRONE_COMMIT}
+      build_args :
+        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_TAG}
         - "latest"
@@ -376,7 +392,9 @@ steps :
       repo : docker-registry.continuousdelivery.store/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/config-server
       registry : docker-registry.continuousdelivery.store
       force_tag : true
-      build_args : BUILD_VERSION=${DRONE_COMMIT}
+      build_args :
+        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_TAG}
         - "latest"
@@ -399,7 +417,9 @@ steps :
       repo : docker-registry.continuousdelivery.store/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/hystrix-dashboard
       registry : docker-registry.continuousdelivery.store
       force_tag : true
-      build_args : BUILD_VERSION=${DRONE_COMMIT}
+      build_args :
+        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_TAG}
         - "latest"
@@ -422,7 +442,9 @@ steps :
       repo : docker-registry.continuousdelivery.store/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/department-service
       registry : docker-registry.continuousdelivery.store
       force_tag : true
-      build_args : BUILD_VERSION=${DRONE_COMMIT}
+      build_args :
+        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_TAG}
         - "latest"
@@ -445,7 +467,9 @@ steps :
       repo : docker-registry.continuousdelivery.store/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/user-profile-service
       registry : docker-registry.continuousdelivery.store
       force_tag : true
-      build_args : BUILD_VERSION=${DRONE_COMMIT}
+      build_args :
+        - BASE_IMAGE=docker-registry.c2a2.com/jdk:openjdk-19-slim
+        - BUILD_VERSION=${DRONE_COMMIT}
       tags :
         - ${DRONE_TAG}
         - "latest"
