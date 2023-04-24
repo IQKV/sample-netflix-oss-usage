@@ -193,6 +193,11 @@
                 <version>${ehcache.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-jcache</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.playtika.testcontainers</groupId>
                 <artifactId>embedded-mysql</artifactId>
                 <version>${playtika.testcontainers.version}</version>
@@ -449,6 +454,11 @@
                             </goals>
                         </execution>
                     </executions>
+                </plugin>
+                <plugin>
+                    <groupId>pl.project13.maven</groupId>
+                    <artifactId>git-commit-id-plugin</artifactId>
+                    <version>4.9.10</version>
                 </plugin>
                 <plugin>
                     <groupId>io.github.git-commit-id</groupId>
