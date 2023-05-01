@@ -58,7 +58,7 @@
         <logstash.logback.encoder.version>7.2</logstash.logback.encoder.version>
         <mysql-connector.version>8.0.32</mysql-connector.version>
         <zipkin.version>2.2.8.RELEASE</zipkin.version>
-        <playtika.testcontainers.version>2.2.0</playtika.testcontainers.version>
+        <playtika.testcontainers.version>2.3.2</playtika.testcontainers.version>
         <gaul.modernizer-maven-plugin.version>2.5.0</gaul.modernizer-maven-plugin.version>
         <codehaus.versions-maven-plugin.version>2.8.1</codehaus.versions-maven-plugin.version>
         <maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
