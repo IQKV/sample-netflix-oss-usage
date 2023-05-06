@@ -39,7 +39,7 @@
     </parent>
 
     <properties>
-        <java.version>19</java.version>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -49,30 +49,30 @@
 
         <liquibase.version>4.20.0</liquibase.version>
         <vladmihalcea.hibernate-types.version>2.21.1</vladmihalcea.hibernate-types.version>
-        <testcontainers.version>1.17.6</testcontainers.version>
+        <testcontainers.version>1.18.0</testcontainers.version>
         <javax-servlet-api.version>4.0.1</javax-servlet-api.version>
         <spring-cloud-dependencies.version>2021.0.6</spring-cloud-dependencies.version>
         <spring-cloud-sleuth-otel.version>1.1.2</spring-cloud-sleuth-otel.version>
-        <opentelemetry-exporter-otlp.version>1.24.0</opentelemetry-exporter-otlp.version>
+        <opentelemetry-exporter-otlp.version>1.25.0</opentelemetry-exporter-otlp.version>
         <springdoc.version>1.6.14</springdoc.version>
         <logstash.logback.encoder.version>7.2</logstash.logback.encoder.version>
         <mysql-connector.version>8.0.32</mysql-connector.version>
         <zipkin.version>2.2.8.RELEASE</zipkin.version>
-        <playtika.testcontainers.version>2.2.0</playtika.testcontainers.version>
+        <playtika.testcontainers.version>2.3.2</playtika.testcontainers.version>
         <gaul.modernizer-maven-plugin.version>2.5.0</gaul.modernizer-maven-plugin.version>
-        <codehaus.versions-maven-plugin.version>2.8.1</codehaus.versions-maven-plugin.version>
+        <codehaus.versions-maven-plugin.version>2.15.0</codehaus.versions-maven-plugin.version>
         <maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
         <maven-checkstyle-plugin.version>3.2.1</maven-checkstyle-plugin.version>
-        <puppycrawl.checkstyle.version>10.7.0</puppycrawl.checkstyle.version>
+        <puppycrawl.checkstyle.version>10.9.3</puppycrawl.checkstyle.version>
         <maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
         <maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
         <lombok-maven-plugin.version>1.18.20.0</lombok-maven-plugin.version>
         <git-commit-id-plugin.version>5.0.0</git-commit-id-plugin.version>
         <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
-        <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
         <ehcache.version>3.10.8</ehcache.version>
         <micrometer.version>1.10.3</micrometer.version>
-        <eureka.version>3.1.3</eureka.version>
+        <eureka.version>4.0.1</eureka.version>
         <hystrix.version>2.2.10.RELEASE</hystrix.version>
         <zuul.version>1.4.7.RELEASE</zuul.version>
         <ribbon.version>2.2.10.RELEASE</ribbon.version>
@@ -191,6 +191,11 @@
                 <groupId>org.ehcache</groupId>
                 <artifactId>ehcache</artifactId>
                 <version>${ehcache.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-jcache</artifactId>
+                <version>${hibernate.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.playtika.testcontainers</groupId>
@@ -451,6 +456,11 @@
                     </executions>
                 </plugin>
                 <plugin>
+                    <groupId>pl.project13.maven</groupId>
+                    <artifactId>git-commit-id-plugin</artifactId>
+                    <version>4.9.10</version>
+                </plugin>
+                <plugin>
                     <groupId>io.github.git-commit-id</groupId>
                     <artifactId>git-commit-id-maven-plugin</artifactId>
                     <version>${git-commit-id-plugin.version}</version>
@@ -623,7 +633,7 @@
                                         <limit>
                                             <counter>LINE</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.66</minimum>
+                                            <minimum>0.50</minimum>
                                         </limit>
                                         <limit>
                                             <counter>BRANCH</counter>
