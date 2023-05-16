@@ -67,7 +67,7 @@ spring :
     enabled : true
 
 logging :
-  pattern:
+  pattern :
     level : '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
   level :
     ROOT : ${LOGGING_LEVEL_ROOT:INFO}
