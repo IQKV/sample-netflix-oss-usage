@@ -45,13 +45,17 @@ management :
   info :
     env :
       enabled : true
+    java :
+      enabled : true
+    os :
+      enabled : true
   server :
     add-application-context-header : true
   endpoints :
     enabled-by-default : false
     web :
       exposure :
-        include : health, prometheus, info
+        include : health, prometheus, info, env
   endpoint :
     health :
       enabled : true
@@ -62,3 +66,6 @@ management :
       enabled : true
     info :
       enabled : true
+    env :
+      enabled : true
+      show-values : always

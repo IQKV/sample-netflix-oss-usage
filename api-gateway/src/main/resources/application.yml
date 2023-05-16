@@ -77,7 +77,7 @@ management :
     enabled-by-default : false
     web :
       exposure :
-        include : health, prometheus, info, hystrix.stream
+        include : health, prometheus, info, env, hystrix.stream
   endpoint :
     health :
       enabled : true
@@ -88,9 +88,16 @@ management :
       enabled : true
     info :
       enabled : true
+    env :
+      enabled : true
+      show-values : always
     hystrix :
       stream :
         enabled : true
   info :
     env :
+      enabled : true
+    java :
+      enabled : true
+    os :
       enabled : true

@@ -67,6 +67,8 @@ spring :
     enabled : true
 
 logging :
+  pattern:
+    level : '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
   level :
     ROOT : ${LOGGING_LEVEL_ROOT:INFO}
 
@@ -90,13 +92,17 @@ management :
   info :
     env :
       enabled : true
+    java :
+      enabled : true
+    os :
+      enabled : true
   server :
     add-application-context-header : true
   endpoints :
     enabled-by-default : false
     web :
       exposure :
-        include : health, prometheus, info, openapi, swagger-ui
+        include : health, prometheus, info, env, openapi, swagger-ui
   endpoint :
     health :
       enabled : true
@@ -107,6 +113,9 @@ management :
       enabled : true
     info :
       enabled : true
+    env :
+      enabled : true
+      show-values : always
 
 springdoc :
   show-actuator : false
