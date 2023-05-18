@@ -68,6 +68,7 @@ management :
     metrics :
       export :
         step : 20s
+        enabled: true
   zipkin :
     tracing :
       endpoint : ${TEMPO_URL:http://localhost:9411/api/v2/spans}
@@ -76,7 +77,7 @@ management :
     enabled-by-default : false
     web :
       exposure :
-        include : health, prometheus, info, env
+        include : health, metrics, prometheus, info, env
   endpoint :
     health :
       enabled : true
