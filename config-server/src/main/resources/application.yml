@@ -44,13 +44,39 @@ management :
   info :
     env :
       enabled : true
+    java :
+      enabled : true
+    os :
+      enabled : true
   server :
     add-application-context-header : true
+  metrics :
+    tags :
+      application : ${spring.application.name}
+      profiles : ${spring.profiles.active}
+    distribution :
+      percentiles-histogram :
+        http :
+          server :
+            requests : true
+  tracing :
+    sampling :
+      probability : 1.0
+    enabled : true
+  prometheus :
+    metrics :
+      export :
+        step : 20s
+        enabled: true
+  zipkin :
+    tracing :
+      endpoint : ${TEMPO_URL:http://localhost:9411/api/v2/spans}
+
   endpoints :
     enabled-by-default : false
     web :
       exposure :
-        include : health, prometheus, info
+        include : health, metrics, prometheus, env, info
   endpoint :
     health :
       enabled : true
@@ -61,3 +87,6 @@ management :
       enabled : true
     info :
       enabled : true
+    env :
+      enabled : true
+      show-values : always
