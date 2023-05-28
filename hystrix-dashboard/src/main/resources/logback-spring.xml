@@ -15,7 +15,7 @@
                 <pattern>application=${application_name},host=${HOSTNAME},traceID=%X{traceId:-NONE},level=%level</pattern>
             </label>
             <message>
-                <pattern>{"message": "%msg", "logger": "%logger{20}", "thread": "%thread"}</pattern>
+                <pattern>{"message": "%msg", "logger": "%logger{20}", "thread": "%thread", "traceID": "%X{traceId:-NONE}"}</pattern>
             </message>
             <sortByTime>true</sortByTime>
         </format>
