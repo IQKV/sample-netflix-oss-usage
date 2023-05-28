@@ -15,7 +15,7 @@
                 <pattern>application=${application_name},host=${HOSTNAME},traceID=%X{traceId:-NONE},level=%level</pattern>
             </label>
             <message>
-                <pattern>${FILE_LOG_PATTERN}</pattern>
+                <pattern>{"message": "%msg", "logger": "%logger{20}", "thread": "%thread"}</pattern>
             </message>
             <sortByTime>true</sortByTime>
         </format>
