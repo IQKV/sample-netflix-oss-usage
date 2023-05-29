@@ -55,7 +55,7 @@
         <spring-cloud-dependencies.version>2021.0.6</spring-cloud-dependencies.version>
         <springdoc.version>1.7.0</springdoc.version>
         <logstash.logback.encoder.version>7.2</logstash.logback.encoder.version>
-        <loki-logback-appender.version>1.4.0</loki-logback-appender.version>
+        <loki-logback-appender.version>1.4.1</loki-logback-appender.version>
         <mysql-connector.version>8.0.32</mysql-connector.version>
         <zipkin.version>2.2.8.RELEASE</zipkin.version>
         <playtika.testcontainers.version>2.3.2</playtika.testcontainers.version>
