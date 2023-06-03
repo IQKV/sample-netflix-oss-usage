@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -47,34 +48,33 @@
         <sonar.exclusions>**/*Application.java</sonar.exclusions>
         <spring-boot.version>2.7.10</spring-boot.version>
 
-        <liquibase.version>4.20.0</liquibase.version>
+        <liquibase.version>4.22.0</liquibase.version>
         <vladmihalcea.hibernate-types.version>2.21.1</vladmihalcea.hibernate-types.version>
-        <testcontainers.version>1.18.0</testcontainers.version>
+        <testcontainers.version>1.18.1</testcontainers.version>
         <javax-servlet-api.version>4.0.1</javax-servlet-api.version>
         <spring-cloud-dependencies.version>2021.0.6</spring-cloud-dependencies.version>
-        <spring-cloud-sleuth-otel.version>1.1.2</spring-cloud-sleuth-otel.version>
-        <opentelemetry-exporter-otlp.version>1.25.0</opentelemetry-exporter-otlp.version>
-        <springdoc.version>1.6.14</springdoc.version>
+        <springdoc.version>1.7.0</springdoc.version>
         <logstash.logback.encoder.version>7.2</logstash.logback.encoder.version>
+        <loki-logback-appender.version>1.4.1</loki-logback-appender.version>
         <mysql-connector.version>8.0.32</mysql-connector.version>
         <zipkin.version>2.2.8.RELEASE</zipkin.version>
         <playtika.testcontainers.version>2.3.2</playtika.testcontainers.version>
-        <gaul.modernizer-maven-plugin.version>2.5.0</gaul.modernizer-maven-plugin.version>
+        <gaul.modernizer-maven-plugin.version>2.6.0</gaul.modernizer-maven-plugin.version>
         <codehaus.versions-maven-plugin.version>2.15.0</codehaus.versions-maven-plugin.version>
-        <maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
-        <maven-checkstyle-plugin.version>3.2.1</maven-checkstyle-plugin.version>
-        <puppycrawl.checkstyle.version>10.9.3</puppycrawl.checkstyle.version>
+        <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+        <maven-checkstyle-plugin.version>3.3.0</maven-checkstyle-plugin.version>
+        <puppycrawl.checkstyle.version>10.12.0</puppycrawl.checkstyle.version>
         <maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
         <maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
         <lombok-maven-plugin.version>1.18.20.0</lombok-maven-plugin.version>
-        <git-commit-id-plugin.version>5.0.0</git-commit-id-plugin.version>
-        <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
+        <git-commit-id-plugin.version>6.0.0</git-commit-id-plugin.version>
+        <maven-surefire-plugin.version>3.1.0</maven-surefire-plugin.version>
         <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
         <ehcache.version>3.10.8</ehcache.version>
-        <micrometer.version>1.10.3</micrometer.version>
-        <eureka.version>4.0.1</eureka.version>
+        <micrometer.version>1.11.0</micrometer.version>
+        <eureka.version>4.0.2</eureka.version>
         <hystrix.version>2.2.10.RELEASE</hystrix.version>
-        <zuul.version>1.4.7.RELEASE</zuul.version>
+        <zuul.version>2.2.10.RELEASE</zuul.version>
         <ribbon.version>2.2.10.RELEASE</ribbon.version>
     </properties>
 
@@ -213,12 +213,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-amqp</artifactId>
                 <version>${spring-boot.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-tomcat</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.testcontainers</groupId>
@@ -236,19 +230,7 @@
                 <artifactId>metrics-core</artifactId>
                 <version>${dropwizard-metrics.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-sleuth-otel-dependencies</artifactId>
-                <version>${spring-cloud-sleuth-otel.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-            <dependency>
-                <groupId>io.opentelemetry</groupId>
-                <artifactId>opentelemetry-exporter-otlp</artifactId>
-                <version>${opentelemetry-exporter-otlp.version}</version>
-            </dependency>
-            <dependency>
+               <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
                 <version>${eureka.version}</version>
@@ -309,6 +291,11 @@
                 <groupId>net.logstash.logback</groupId>
                 <artifactId>logstash-logback-encoder</artifactId>
                 <version>${logstash.logback.encoder.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.loki4j</groupId>
+                <artifactId>loki-logback-appender</artifactId>
+                <version>${loki-logback-appender.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.testcontainers</groupId>
