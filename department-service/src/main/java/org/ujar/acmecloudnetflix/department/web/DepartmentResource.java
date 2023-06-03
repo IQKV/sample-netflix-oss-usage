@@ -24,8 +24,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.ujar.acmecloudnetflix.department.dto.DepartmentDto;
 import org.ujar.acmecloudnetflix.department.entity.Department;
 import org.ujar.acmecloudnetflix.department.repository.DepartmentRepository;
-import org.ujar.boot.starter.restful.web.dto.ErrorResponse;
-import org.ujar.boot.starter.restful.web.dto.PageRequestDto;
+import org.ujar.acmecloudnetflix.starter.restful.web.dto.ErrorResponse;
+import org.ujar.acmecloudnetflix.starter.restful.web.dto.PageRequestDto;
 
 @RestController
 @Tag(name = "Department Resource", description = "API for departments management")
