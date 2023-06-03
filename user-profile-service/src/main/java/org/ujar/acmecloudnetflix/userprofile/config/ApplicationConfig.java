@@ -1,5 +1,7 @@
 package org.ujar.acmecloudnetflix.userprofile.config;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -17,6 +19,7 @@ import org.ujar.acmecloudnetflix.userprofile.config.properties.RestfulClientProp
 @EnableTransactionManagement
 @EnableEurekaClient
 @EnableConfigurationProperties({RestfulClientProperties.class, RestfulApiResourcesProperties.class})
+@OpenAPIDefinition(info = @Info(title = "User Profile Service API", version = "23.0.0"))
 class ApplicationConfig {
 
   @Bean

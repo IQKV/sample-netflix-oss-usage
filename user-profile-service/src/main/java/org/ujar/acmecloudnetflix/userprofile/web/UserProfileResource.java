@@ -21,12 +21,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.ujar.acmecloudnetflix.starter.restful.web.dto.ErrorResponse;
+import org.ujar.acmecloudnetflix.starter.restful.web.dto.PageRequestDto;
 import org.ujar.acmecloudnetflix.userprofile.dto.UserProfileDto;
 import org.ujar.acmecloudnetflix.userprofile.dto.UserProfileWithDepartmentDto;
 import org.ujar.acmecloudnetflix.userprofile.entity.UserProfile;
 import org.ujar.acmecloudnetflix.userprofile.service.UserProfileService;
-import org.ujar.boot.starter.restful.web.dto.ErrorResponse;
-import org.ujar.boot.starter.restful.web.dto.PageRequestDto;
 
 @RestController
 @Tag(name = "User profile resource", description = "API for user profiles management")
