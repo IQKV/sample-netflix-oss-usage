@@ -46,7 +46,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <sonar.exclusions>**/*Application.java</sonar.exclusions>
-        <spring-boot.version>2.7.10</spring-boot.version>
+        <spring-boot.version>3.1.1</spring-boot.version>
 
         <liquibase.version>4.22.0</liquibase.version>
         <vladmihalcea.hibernate-types.version>2.21.1</vladmihalcea.hibernate-types.version>
