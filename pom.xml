@@ -48,7 +48,7 @@
         <sonar.exclusions>**/*Application.java</sonar.exclusions>
         <spring-boot.version>2.7.12</spring-boot.version>
 
-        <liquibase.version>4.23.1</liquibase.version>
+        <liquibase.version>4.23.2</liquibase.version>
         <vladmihalcea.hibernate-types.version>2.21.1</vladmihalcea.hibernate-types.version>
         <testcontainers.version>1.19.0</testcontainers.version>
         <javax-servlet-api.version>4.0.1</javax-servlet-api.version>
