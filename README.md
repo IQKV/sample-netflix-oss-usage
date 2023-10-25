@@ -10,7 +10,7 @@ with department information.
 ### Technology stack
 
 java 21, Maven 3, Spring Boot 2.7, Spring Cloud 2021.0.3
-mongo:5.0, mysql:5.7.41, zipkin-slim:2.23.
+mongo:5.0, mysql:5.7.43, zipkin-slim:2.23.
 
 _Including utils:_ liquibase, WireMock, Mongodb & Mysql testcontainers, docker-compose._dev_.yml,
 micrometer, _checkstyle_ configuration, SpotBugs, PMD etc.
