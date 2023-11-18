@@ -11,7 +11,7 @@
     <description>User Profile Service</description>
 
     <parent>
-        <groupId>org.ujar.sample-acme-mix-cloud-netflix</groupId>
+        <groupId>dev.knowhowto.sample-acme-mix-cloud-netflix</groupId>
         <artifactId>acme-mix-cloud-netflix</artifactId>
         <version>23.0.0-SNAPSHOT</version>
     </parent>
@@ -24,7 +24,7 @@
         <sonar.coverage.exclusions>**/*Config*.java,**/*Properties.java,**/*Test.java,**/Test*.java</sonar.coverage.exclusions>
         <checkstyle.skip>false</checkstyle.skip>
         <maven.gitcommitid.skip>false</maven.gitcommitid.skip>
-        <start-class>org.ujar.acmecloudnetflix.userprofile.UserProfileServiceApplication</start-class>
+        <start-class>dev.knowhowto.acmecloudnetflix.userprofile.UserProfileServiceApplication</start-class>
     </properties>
 
     <dependencies>
@@ -42,7 +42,7 @@
             <artifactId>metrics-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.ujar.sample-acme-mix-cloud-netflix</groupId>
+            <groupId>dev.knowhowto.sample-acme-mix-cloud-netflix</groupId>
             <artifactId>boot-starter-restful</artifactId>
         </dependency>
         <dependency>

@@ -1,7 +1,7 @@
 ## [ACME Corp.] Departments and User Profile Microservices 
 
 
-Minimal microservices example demo - using Spring Cloud / Netflix OSS Project.
+Minimal microservices example demo - using legacy Spring Cloud / Netflix OSS Project.
 
 The project maintains two microservices, the department service and the user profile service. Each user profile can be linked to any department.
 The User Profile Service allows you to retrieve department data by calling the Department Service REST API and complete the profile data response
