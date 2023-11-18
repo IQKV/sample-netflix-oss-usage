@@ -1,5 +1,4 @@
-## [ACME Corp.] Departments and User Profile Microservices 
-
+## [ACME Corp.] Departments and User Profile Microservices
 
 Minimal microservices example demo - using legacy Spring Cloud / Netflix OSS Project.
 
@@ -22,17 +21,15 @@ This sample project specifically demonstrates the following features using the S
 - (Client Side) Load Balancing
 - Circuit Breaker pattern
 
-
 Spring Cloud / Netflix OSS
 
-| Service/Feature           |            Spring Cloud Component            | Netflix Component              |
-|---------------------------|:--------------------------------------------:|--------------------------------|
-| Service Discovery         |             Spring Cloud Eureka              | Eureka Server<br>Eureka Client |
-| Circuit Breaker           |             Spring Cloud Hystrix             | Hystrix<br>Hystrix Dashboard   |
-| Load Balancing            |          Spring Cloud Load Balancer          |                                |
-| Centralized Configuration |          Spring Cloud Config Server          |                                |
-| Distributed Tracing       |  Spring Cloud Sleuth<br>Spring Cloud Zipkin  |                                |
-
+| Service/Feature           |           Spring Cloud Component           | Netflix Component              |
+|---------------------------|:------------------------------------------:|--------------------------------|
+| Service Discovery         |            Spring Cloud Eureka             | Eureka Server<br>Eureka Client |
+| Circuit Breaker           |            Spring Cloud Hystrix            | Hystrix<br>Hystrix Dashboard   |
+| Load Balancing            |         Spring Cloud Load Balancer         |                                |
+| Centralized Configuration |         Spring Cloud Config Server         |                                |
+| Distributed Tracing       | Spring Cloud Sleuth<br>Spring Cloud Zipkin |                                |
 
 ### Prerequisites
 
