@@ -1,5 +1,5 @@
 {
-    "name": "know-how-spring-boot-sample-acme-mix-cloud-netflix",
+    "name": "@know-how-spring-boot/sample-acme-mix-cloud-netflix",
     "version": "23.0.0",
     "description": "Provide an optional Git commit hooks.",
     "private": true,
