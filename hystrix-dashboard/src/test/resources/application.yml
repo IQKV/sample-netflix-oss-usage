@@ -13,7 +13,7 @@ spring :
       server :
         enabled : false
         git :
-          uri : https://github.com/dimdnk/ujar-config-server-example
+          uri : https://github.com/gh-dimdnk/knowhowto-config-server-example
           clone-on-start : false
 
 eureka :
