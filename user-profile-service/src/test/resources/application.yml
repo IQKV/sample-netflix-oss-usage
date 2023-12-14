@@ -31,7 +31,7 @@ eureka :
     register-with-eureka : false
     fetch-registry : false
 
-ujar :
+iqkv :
   restful-client :
     connect-timeout : 100ms
     read-timeout : 100ms
@@ -43,6 +43,7 @@ ujar :
       multiplier : 1.5
       max-delay : 3000
 
-  restful-api-resources :
-    department-service-base-url : http://localhost:${wiremock.server.port}
-    department-service-uri : /api/v1/departments/{id}
+  service-discovery :
+    services :
+      department-service-base-url : http://localhost:${wiremock.server.port}
+      department-service-uri : /api/v1/departments/{id}
