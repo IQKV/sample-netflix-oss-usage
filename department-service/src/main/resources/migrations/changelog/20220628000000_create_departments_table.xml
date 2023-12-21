@@ -5,7 +5,7 @@
                         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
 
-    <changeSet id="23.0.0" author="knowhowto">
+    <changeSet id="24.0.0" author="knowhowto">
         <createTable tableName="departments">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>

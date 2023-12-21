@@ -15,6 +15,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EnableSpringDataWebSupport
 @EnableEurekaClient
-@OpenAPIDefinition(info = @Info(title = "Department Service API", version = "23.0.0"))
+@OpenAPIDefinition(info = @Info(title = "Department Service API", version = "24.0.0"))
 class ApplicationConfig {
 }

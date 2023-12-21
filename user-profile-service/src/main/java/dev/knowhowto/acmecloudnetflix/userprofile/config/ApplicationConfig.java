@@ -19,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableTransactionManagement
 @EnableEurekaClient
 @EnableConfigurationProperties({RestfulClientProperties.class, RestfulApiResourcesProperties.class})
-@OpenAPIDefinition(info = @Info(title = "User Profile Service API", version = "23.0.0"))
+@OpenAPIDefinition(info = @Info(title = "User Profile Service API", version = "24.0.0"))
 class ApplicationConfig {
 
   @Bean
