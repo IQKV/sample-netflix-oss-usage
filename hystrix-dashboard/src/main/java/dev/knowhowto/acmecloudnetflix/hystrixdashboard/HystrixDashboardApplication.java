@@ -8,10 +8,8 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 @SpringBootApplication
 @EnableEurekaClient
 @EnableHystrixDashboard
+@SuppressWarnings("PMD.UseUtilityClass")
 public class HystrixDashboardApplication {
-
-  private HystrixDashboardApplication() {
-  }
 
   public static void main(String[] args) {
     SpringApplication.run(HystrixDashboardApplication.class, args);
