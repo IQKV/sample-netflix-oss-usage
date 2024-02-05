@@ -8,7 +8,6 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableHystrix
-@SuppressWarnings("PMD.UseUtilityClass")
 public class ApiGatewayApplication {
 
   public static void main(String[] args) {
