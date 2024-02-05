@@ -9,6 +9,10 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 @EnableEurekaClient
 @EnableHystrix
 public class ApiGatewayApplication {
+
+  private ApiGatewayApplication() {
+  }
+
   public static void main(String[] args) {
     SpringApplication.run(ApiGatewayApplication.class, args);
   }
