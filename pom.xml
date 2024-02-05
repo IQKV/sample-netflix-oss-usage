@@ -51,7 +51,7 @@
 
         <liquibase.version>4.25.1</liquibase.version>
         <vladmihalcea.hibernate-types.version>2.21.1</vladmihalcea.hibernate-types.version>
-        <testcontainers.version>1.19.3</testcontainers.version>
+        <testcontainers.version>1.19.4</testcontainers.version>
         <javax-servlet-api.version>4.0.1</javax-servlet-api.version>
         <spring-cloud-dependencies.version>2021.0.6</spring-cloud-dependencies.version>
         <springdoc.version>1.7.0</springdoc.version>
@@ -59,17 +59,17 @@
         <loki-logback-appender.version>1.4.2</loki-logback-appender.version>
         <mysql-connector.version>8.0.32</mysql-connector.version>
         <zipkin.version>2.2.8.RELEASE</zipkin.version>
-        <playtika.testcontainers.version>3.1.1</playtika.testcontainers.version>
+        <playtika.testcontainers.version>3.1.4</playtika.testcontainers.version>
         <gaul.modernizer-maven-plugin.version>2.7.0</gaul.modernizer-maven-plugin.version>
         <codehaus.versions-maven-plugin.version>2.16.2</codehaus.versions-maven-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
         <maven-checkstyle-plugin.version>3.3.1</maven-checkstyle-plugin.version>
-        <puppycrawl.checkstyle.version>10.12.7</puppycrawl.checkstyle.version>
+        <puppycrawl.checkstyle.version>10.13.0</puppycrawl.checkstyle.version>
         <maven-javadoc-plugin.version>3.6.3</maven-javadoc-plugin.version>
         <maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
         <lombok-maven-plugin.version>1.18.20.0</lombok-maven-plugin.version>
         <git-commit-id-plugin.version>7.0.0</git-commit-id-plugin.version>
-        <maven-surefire-plugin.version>3.2.3</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
         <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
         <ehcache.version>3.10.8</ehcache.version>
         <micrometer.version>1.12.1</micrometer.version>
