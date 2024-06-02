@@ -60,7 +60,7 @@
         <mysql-connector.version>8.0.32</mysql-connector.version>
         <zipkin.version>2.2.8.RELEASE</zipkin.version>
         <playtika.testcontainers.version>3.1.4</playtika.testcontainers.version>
-        <gaul.modernizer-maven-plugin.version>2.7.0</gaul.modernizer-maven-plugin.version>
+        <gaul.modernizer-maven-plugin.version>2.9.0</gaul.modernizer-maven-plugin.version>
         <codehaus.versions-maven-plugin.version>2.16.2</codehaus.versions-maven-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
         <maven-checkstyle-plugin.version>3.3.1</maven-checkstyle-plugin.version>
