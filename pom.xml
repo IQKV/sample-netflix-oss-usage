@@ -81,7 +81,7 @@
 
     <modules>
         <module>boot-starter-cache</module>
-        <module>boot-starter-restful</module>
+        <module>boot-starter-mvc-rest</module>
         <module>api-gateway</module>
         <module>department-service</module>
         <module>service-registry</module>
@@ -100,7 +100,7 @@
             </dependency>
             <dependency>
                 <groupId>dev.knowhowto.sample-acme-mix-cloud-netflix</groupId>
-                <artifactId>boot-starter-restful</artifactId>
+                <artifactId>boot-starter-mvc-rest</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
