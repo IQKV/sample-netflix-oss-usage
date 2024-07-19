@@ -2,8 +2,8 @@ package dev.knowhowto.acmecloudnetflix.userprofile.web;
 
 import javax.validation.Valid;
 
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.ErrorResponse;
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.PageRequestDto;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.ErrorResponse;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.PageRequestDto;
 import dev.knowhowto.acmecloudnetflix.userprofile.dto.UserProfileDto;
 import dev.knowhowto.acmecloudnetflix.userprofile.dto.UserProfileWithDepartmentDto;
 import dev.knowhowto.acmecloudnetflix.userprofile.entity.UserProfile;

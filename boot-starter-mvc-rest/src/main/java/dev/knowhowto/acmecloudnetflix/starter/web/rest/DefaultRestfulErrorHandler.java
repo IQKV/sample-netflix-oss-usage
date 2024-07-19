@@ -1,15 +1,15 @@
-package dev.knowhowto.acmecloudnetflix.starter.restful.web;
+package dev.knowhowto.acmecloudnetflix.starter.web.rest;
 
 import javax.validation.ConstraintViolationException;
 import javax.validation.constraints.NotNull;
 
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.ErrorCode;
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.ErrorResponse;
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.InvalidContentTypeMeta;
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.InvalidHttpMethodMeta;
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.InvalidRequestBodyMeta;
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.InvalidRequestParameterMeta;
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.UnknownErrorMeta;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.ErrorCode;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.ErrorResponse;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.InvalidContentTypeMeta;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.InvalidHttpMethodMeta;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.InvalidRequestBodyMeta;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.InvalidRequestParameterMeta;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.UnknownErrorMeta;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

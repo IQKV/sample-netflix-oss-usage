@@ -1,4 +1,4 @@
-package dev.knowhowto.acmecloudnetflix.starter.restful.web.dto;
+package dev.knowhowto.acmecloudnetflix.starter.web.rest.dto;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
