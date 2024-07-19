@@ -1,4 +1,4 @@
-package dev.knowhowto.acmecloudnetflix.starter.restful.web.dto;
+package dev.knowhowto.acmecloudnetflix.starter.web.rest.dto;
 
 public record InvalidRequestBodyMeta(String field, Object invalidValue) {
 

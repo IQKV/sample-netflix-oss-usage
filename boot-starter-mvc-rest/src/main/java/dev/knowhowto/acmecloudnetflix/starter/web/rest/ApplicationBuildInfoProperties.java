@@ -1,4 +1,4 @@
-package dev.knowhowto.acmecloudnetflix.starter.restful;
+package dev.knowhowto.acmecloudnetflix.starter.web.rest;
 
 import javax.validation.constraints.NotNull;
 

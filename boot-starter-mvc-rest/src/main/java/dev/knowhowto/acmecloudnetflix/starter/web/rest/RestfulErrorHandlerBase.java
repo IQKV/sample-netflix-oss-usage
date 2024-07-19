@@ -1,6 +1,6 @@
-package dev.knowhowto.acmecloudnetflix.starter.restful.web;
+package dev.knowhowto.acmecloudnetflix.starter.web.rest;
 
-import static dev.knowhowto.acmecloudnetflix.starter.restful.web.RestfulErrorHandlerUtils.getJsonPointerField;
+import static dev.knowhowto.acmecloudnetflix.starter.web.rest.RestfulErrorHandlerUtils.getJsonPointerField;
 
 import java.util.List;
 import java.util.Objects;
@@ -10,13 +10,13 @@ import java.util.stream.StreamSupport;
 import javax.validation.ConstraintViolationException;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.Error;
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.ErrorResponse;
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.InvalidContentTypeMeta;
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.InvalidHttpMethodMeta;
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.InvalidRequestBodyMeta;
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.InvalidRequestParameterMeta;
-import dev.knowhowto.acmecloudnetflix.starter.restful.web.dto.UnknownErrorMeta;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.Error;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.ErrorResponse;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.InvalidContentTypeMeta;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.InvalidHttpMethodMeta;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.InvalidRequestBodyMeta;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.InvalidRequestParameterMeta;
+import dev.knowhowto.acmecloudnetflix.starter.web.rest.dto.UnknownErrorMeta;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.converter.HttpMessageNotReadableException;
