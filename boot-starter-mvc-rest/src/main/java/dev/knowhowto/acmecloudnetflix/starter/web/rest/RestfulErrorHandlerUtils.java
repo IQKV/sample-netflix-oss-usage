@@ -1,4 +1,4 @@
-package dev.knowhowto.acmecloudnetflix.starter.restful.web;
+package dev.knowhowto.acmecloudnetflix.starter.web.rest;
 
 import java.util.stream.Collectors;
 

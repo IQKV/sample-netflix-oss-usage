@@ -1,4 +1,4 @@
-package dev.knowhowto.acmecloudnetflix.starter.restful.web;
+package dev.knowhowto.acmecloudnetflix.starter.web.rest;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
