@@ -59,7 +59,7 @@ services :
     network_mode : 'host' # to test locally running service
   grafana :
     container_name : acme-mix-cloud-netflix-grafana
-    image :
+    image : grafana/grafana:11.2.0
     volumes :
       - ./docker/grafana/provisioning/:/etc/grafana/provisioning/
     environment :
