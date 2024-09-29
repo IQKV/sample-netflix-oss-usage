@@ -20,7 +20,7 @@ public class RestTemplateConfiguration {
   @Bean(name = "departmentServiceRestTemplate")
   @LoadBalanced
   RestTemplate departmentServiceRestTemplate(RestfulClientProperties httpClientProperties, RestfulApiResourcesProperties api,
-      ObjectMapper objectMapper) {
+                                             ObjectMapper objectMapper) {
     return restTemplateBuilder(httpClientProperties)
         .rootUri(api.getDepartmentServiceBaseUrl())
         .errorHandler(new CommonErrorHandler(

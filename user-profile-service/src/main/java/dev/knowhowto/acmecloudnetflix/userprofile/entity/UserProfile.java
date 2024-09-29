@@ -17,7 +17,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = UserProfile.COLLECTION_NAME)
 public class UserProfile {
 
-  protected static final String COLLECTION_NAME =  "user_profiles";
+  protected static final String COLLECTION_NAME = "user_profiles";
 
   @Id
   private String id;
