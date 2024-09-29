@@ -45,7 +45,7 @@ class CacheConfig {
   @Bean
   JCacheManagerCustomizer cacheManagerCustomizer() {
     return cm -> createCache(cm,
-          dev.knowhowto.acmecloudnetflix.department.entity.Department.class.getName()
+        dev.knowhowto.acmecloudnetflix.department.entity.Department.class.getName()
     );
   }
 

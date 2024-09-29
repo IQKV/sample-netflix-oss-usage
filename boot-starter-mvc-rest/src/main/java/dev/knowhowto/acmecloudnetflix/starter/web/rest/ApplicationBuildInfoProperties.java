@@ -10,8 +10,8 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 @ConfigurationProperties("build")
 public record ApplicationBuildInfoProperties(@NotNull String version,
-                                    @NotNull String description,
-                                    @NotNull String relativePath) {
+                                             @NotNull String description,
+                                             @NotNull String relativePath) {
 
   public String getVersion() {
     return version();

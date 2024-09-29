@@ -29,5 +29,5 @@ class ApplicationConfig {
   ) {
     return new DepartmentServiceClientImpl(restTemplate, apiResourcesProperties);
   }
-  
+
 }
