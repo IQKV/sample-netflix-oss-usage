@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>dev.knowhowto.sample-acme-mix-cloud-netflix</groupId>
+    <groupId>dev.knowhowto.sample.netfixoss</groupId>
     <artifactId>acme-mix-cloud-netflix</artifactId>
     <version>24.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -94,12 +94,12 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>dev.knowhowto.sample-acme-mix-cloud-netflix</groupId>
+                <groupId>dev.knowhowto.sample.netfixoss</groupId>
                 <artifactId>boot-starter-cache</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>dev.knowhowto.sample-acme-mix-cloud-netflix</groupId>
+                <groupId>dev.knowhowto.sample.netfixoss</groupId>
                 <artifactId>boot-starter-mvc-rest</artifactId>
                 <version>${project.version}</version>
             </dependency>
