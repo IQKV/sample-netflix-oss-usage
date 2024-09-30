@@ -1,9 +1,9 @@
 # This configuration is intended for dev purpose
-version : '3.8'
+name : dev-acme-mix-cloud-netflix
 services :
   mongodb :
     image : mongo:5.0-focal
-    container_name : acme-mix-cloud-netflix-mongodb
+    container_name : dev-acme-mix-cloud-netflix-mongodb
     restart : unless-stopped
     ports :
       - 27017:27017
@@ -14,7 +14,7 @@ services :
 
   mysql :
     image : mysql:5.7.44
-    container_name : acme-mix-cloud-netflix-mysql
+    container_name : dev-acme-mix-cloud-netflix-mysql
     restart : unless-stopped
     ports :
       - 3306:3306
@@ -48,7 +48,7 @@ services :
     container_name : fake_dependencies
 
   prometheus :
-    container_name : acme-mix-cloud-netflix-prometheus
+    container_name : dev-acme-mix-cloud-netflix-prometheus
     image : prom/prometheus:v2.54.1
     volumes :
       - ./docker/prometheus/:/etc/prometheus/
@@ -58,7 +58,7 @@ services :
     # docker/grafana/provisioning/datasources/datasource.yml
     network_mode : 'host' # to test locally running service
   grafana :
-    container_name : acme-mix-cloud-netflix-grafana
+    container_name : dev-acme-mix-cloud-netflix-grafana
     image : grafana/grafana:11.2.0
     volumes :
       - ./docker/grafana/provisioning/:/etc/grafana/provisioning/
