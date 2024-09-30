@@ -11,7 +11,7 @@
     <description>User Profile Service</description>
 
     <parent>
-        <groupId>dev.knowhowto.sample-acme-mix-cloud-netflix</groupId>
+        <groupId>dev.knowhowto.sample.netfixoss</groupId>
         <artifactId>acme-mix-cloud-netflix</artifactId>
         <version>24.0.0-SNAPSHOT</version>
     </parent>
@@ -42,7 +42,7 @@
             <artifactId>metrics-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>dev.knowhowto.sample-acme-mix-cloud-netflix</groupId>
+            <groupId>dev.knowhowto.sample.netfixoss</groupId>
             <artifactId>boot-starter-mvc-rest</artifactId>
         </dependency>
         <dependency>
