@@ -1,9 +1,9 @@
 {
-    "properties": [
-        {
-            "name": "iqkv.cache",
-            "description": "Cache configuration definitions.",
-            "type": "dev.knowhowto.acmecloudnetflix.starter.cache.CacheProperties"
-        }
-    ]
+  "properties": [
+    {
+      "name": "iqkv.cache",
+      "description": "Cache configuration definitions.",
+      "type": "dev.knowhowto.acmecloudnetflix.starter.cache.CacheProperties"
+    }
+  ]
 }
