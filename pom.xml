@@ -50,7 +50,7 @@
 
         <liquibase.version>4.29.2</liquibase.version>
         <vladmihalcea.hibernate-types.version>2.21.1</vladmihalcea.hibernate-types.version>
-        <testcontainers.version>1.20.2</testcontainers.version>
+        <testcontainers.version>1.20.3</testcontainers.version>
         <javax-servlet-api.version>4.0.1</javax-servlet-api.version>
         <spring-cloud-dependencies.version>2021.0.6</spring-cloud-dependencies.version>
         <springdoc.version>1.8.0</springdoc.version>
