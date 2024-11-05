@@ -22,7 +22,7 @@ spring :
     config :
       server :
         git :
-          uri : https://github.com/gh-buddy/knowhowto-config-server-example
+          uri : https://github.com/gh-buddy/incubator-sample-config-server-example
           clone-on-start : true
 server :
   port : ${SERVER_PORT:8080}

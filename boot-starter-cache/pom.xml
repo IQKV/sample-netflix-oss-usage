@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>dev.knowhowto.sample.netfixoss</groupId>
+    <groupId>com.iqkv.incubator.sample.mixnetflixoss</groupId>
     <artifactId>boot-starter-cache</artifactId>
     <version>24.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -19,7 +19,7 @@
     </licenses>
     <organization>
         <name>KnowHowSpringBoot Bootcamp</name>
-        <url>https://knowhowto.dev</url>
+        <url>https://iqkv.com</url>
     </organization>
     <developers>
         <developer>
@@ -31,8 +31,8 @@
         </developer>
     </developers>
     <parent>
-        <groupId>dev.knowhowto.sample.netfixoss</groupId>
-        <artifactId>acme-mix-cloud-netflix</artifactId>
+        <groupId>com.iqkv.incubator.sample.mixnetflixoss</groupId>
+        <artifactId>mix-netflixoss</artifactId>
         <version>24.0.0-SNAPSHOT</version>
     </parent>
     <properties>
