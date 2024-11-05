@@ -12,7 +12,7 @@ spring :
       server :
         enabled : false
         git :
-          uri : https://github.com/gh-buddy/knowhowto-config-server-example
+          uri : https://github.com/gh-buddy/incubator-sample-config-server-example
           clone-on-start : false
 
 eureka :

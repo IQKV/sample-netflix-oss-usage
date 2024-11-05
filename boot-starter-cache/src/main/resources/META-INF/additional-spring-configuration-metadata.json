@@ -3,7 +3,7 @@
     {
       "name": "iqkv.cache",
       "description": "Cache configuration definitions.",
-      "type": "dev.knowhowto.acmecloudnetflix.starter.cache.CacheProperties"
+      "type": "com.iqkv.incubator.sample.mixnetflixoss.starter.cache.CacheProperties"
     }
   ]
 }
