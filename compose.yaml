@@ -1,9 +1,9 @@
 # This configuration is intended for dev purpose
-name : dev-mix-netflixoss
+name : dev-mixnetflixoss
 services :
   mongodb :
     image : mongo:5.0-focal
-    container_name : dev-mix-netflixoss-mongodb
+    container_name : dev-mixnetflixoss-mongodb
     restart : unless-stopped
     ports :
       - 27017:27017
@@ -14,7 +14,7 @@ services :
 
   mysql :
     image : mysql:5.7.44
-    container_name : dev-mix-netflixoss-mysql
+    container_name : dev-mixnetflixoss-mysql
     restart : unless-stopped
     ports :
       - 3306:3306
@@ -48,7 +48,7 @@ services :
     container_name : fake_dependencies
 
   prometheus :
-    container_name : dev-mix-netflixoss-prometheus
+    container_name : dev-mixnetflixoss-prometheus
     image : prom/prometheus:v2.54.1
     volumes :
       - ./docker/prometheus/:/etc/prometheus/
@@ -58,7 +58,7 @@ services :
     # docker/grafana/provisioning/datasources/datasource.yml
     network_mode : 'host' # to test locally running service
   grafana :
-    container_name : dev-mix-netflixoss-grafana
+    container_name : dev-mixnetflixoss-grafana
     image : grafana/grafana:11.2.2
     volumes :
       - ./docker/grafana/provisioning/:/etc/grafana/provisioning/
