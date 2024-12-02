@@ -8,7 +8,7 @@ import org.springframework.validation.annotation.Validated;
 
 @ConstructorBinding
 @Validated
-@ConfigurationProperties("build")
+@ConfigurationProperties("build-info")
 public record ApplicationBuildInfoProperties(@NotNull String version,
                                              @NotNull String description,
                                              @NotNull String relativePath) {
