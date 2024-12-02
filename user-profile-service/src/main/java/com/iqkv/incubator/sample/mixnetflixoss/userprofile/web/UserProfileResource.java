@@ -2,8 +2,8 @@ package com.iqkv.incubator.sample.mixnetflixoss.userprofile.web;
 
 import javax.validation.Valid;
 
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.ErrorResponse;
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.PageRequestDto;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.ErrorResponse;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.PageRequestDto;
 import com.iqkv.incubator.sample.mixnetflixoss.userprofile.dto.UserProfileDto;
 import com.iqkv.incubator.sample.mixnetflixoss.userprofile.dto.UserProfileWithDepartmentDto;
 import com.iqkv.incubator.sample.mixnetflixoss.userprofile.entity.UserProfile;

@@ -1,4 +1,4 @@
-package com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto;
+package com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 

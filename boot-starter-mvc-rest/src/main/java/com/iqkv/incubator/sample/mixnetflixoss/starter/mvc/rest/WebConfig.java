@@ -1,4 +1,4 @@
-package com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest;
+package com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;

@@ -1,6 +1,6 @@
-package com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest;
+package com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest;
 
-import static com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.RestfulErrorHandlerUtils.getJsonPointerField;
+import static com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.RestfulErrorHandlerUtils.getJsonPointerField;
 
 import java.util.List;
 import java.util.Objects;
@@ -10,13 +10,13 @@ import java.util.stream.StreamSupport;
 import javax.validation.ConstraintViolationException;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.Error;
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.ErrorResponse;
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.InvalidContentTypeMeta;
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.InvalidHttpMethodMeta;
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.InvalidRequestBodyMeta;
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.InvalidRequestParameterMeta;
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.UnknownErrorMeta;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.Error;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.ErrorResponse;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.InvalidContentTypeMeta;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.InvalidHttpMethodMeta;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.InvalidRequestBodyMeta;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.InvalidRequestParameterMeta;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.UnknownErrorMeta;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.converter.HttpMessageNotReadableException;
