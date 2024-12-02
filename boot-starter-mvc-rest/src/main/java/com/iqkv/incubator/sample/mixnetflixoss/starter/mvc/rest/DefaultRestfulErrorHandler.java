@@ -1,15 +1,15 @@
-package com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest;
+package com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest;
 
 import javax.validation.ConstraintViolationException;
 import javax.validation.constraints.NotNull;
 
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.ErrorCode;
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.ErrorResponse;
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.InvalidContentTypeMeta;
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.InvalidHttpMethodMeta;
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.InvalidRequestBodyMeta;
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.InvalidRequestParameterMeta;
-import com.iqkv.incubator.sample.mixnetflixoss.starter.web.rest.dto.UnknownErrorMeta;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.ErrorCode;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.ErrorResponse;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.InvalidContentTypeMeta;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.InvalidHttpMethodMeta;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.InvalidRequestBodyMeta;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.InvalidRequestParameterMeta;
+import com.iqkv.incubator.sample.mixnetflixoss.starter.mvc.rest.dto.UnknownErrorMeta;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
