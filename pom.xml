@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.iqkv.incubator.sample.mixnetflixoss</groupId>
-    <artifactId>sample-mixnetflixoss</artifactId>
+    <artifactId>sample-mix-netflixoss</artifactId>
     <version>24.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>sample-mixnetflixoss</name>
+    <name>sample-mix-netflixoss</name>
     <description>Minimal microservices example demo - using Spring Cloud / Netflix OSS Project</description>
     <licenses>
         <license>
