@@ -24,7 +24,7 @@ This sample project specifically demonstrates the following features using the S
 Spring Cloud / Netflix OSS
 
 | Service/Feature           |           Spring Cloud Component           | Netflix Component              |
-|---------------------------|:------------------------------------------:|--------------------------------|
+| ------------------------- | :----------------------------------------: | ------------------------------ |
 | Service Discovery         |            Spring Cloud Eureka             | Eureka Server<br>Eureka Client |
 | Circuit Breaker           |            Spring Cloud Hystrix            | Hystrix<br>Hystrix Dashboard   |
 | Load Balancing            |         Spring Cloud Load Balancer         |                                |
@@ -70,4 +70,4 @@ YY.MM.MICRO
 
 1. **YY** - short year - 6, 16, 106
 1. **MM** - short month - 1, 2 ... 11, 12
-1. **MICRO** -  "patch" segment
+1. **MICRO** - "patch" segment
