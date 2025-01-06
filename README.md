@@ -1,4 +1,4 @@
-## Departments and User Profile Microservices
+## 🚀 Departments and User Profile Microservices
 
 Minimal microservices example demo - using legacy Spring Cloud / Netflix OSS Project.
 
