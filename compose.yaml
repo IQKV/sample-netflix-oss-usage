@@ -49,7 +49,7 @@ services:
 
   prometheus:
     container_name: dev-mixnetflixoss-prometheus
-    image: prom/prometheus:v2.54.1
+    image: prom/prometheus:v3.1.0
     volumes:
       - ./docker/prometheus/:/etc/prometheus/
     command:
@@ -59,7 +59,7 @@ services:
     network_mode: "host" # to test locally running service
   grafana:
     container_name: dev-mixnetflixoss-grafana
-    image: grafana/grafana:11.2.2
+    image: grafana/grafana:11.4.0
     volumes:
       - ./docker/grafana/provisioning/:/etc/grafana/provisioning/
     environment:
