@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 IQKV Team.
+ * Copyright 2025 IQKV Team.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableTransactionManagement
 @EnableEurekaClient
 @EnableConfigurationProperties({RestfulClientProperties.class, RestfulApiResourcesProperties.class})
-@OpenAPIDefinition(info = @Info(title = "User Profile Service API", version = "24.0.0"))
+@OpenAPIDefinition(info = @Info(title = "User Profile Service API", version = "25.0.0"))
 class ApplicationConfig {
 
   @Bean
