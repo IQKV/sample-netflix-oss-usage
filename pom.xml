@@ -71,7 +71,7 @@
         <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
         <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
         <ehcache.version>3.10.8</ehcache.version>
-        <micrometer.version>1.14.3</micrometer.version>
+        <micrometer.version>1.14.4</micrometer.version>
         <eureka.version>4.2.0</eureka.version>
         <hystrix.version>2.2.10.RELEASE</hystrix.version>
         <zuul.version>2.2.10.RELEASE</zuul.version>
