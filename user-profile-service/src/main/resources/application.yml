@@ -119,7 +119,7 @@ embedded :
   mongodb :
     enabled : false
 
-iqkv :
+application-settings :
   restful-client :
     connect-timeout : ${RESTFUL_CLIENT_CONNECT_TIMEOUT:1s}
     read-timeout : ${RESTFUL_CLIENT_READ_TIMEOUT:10s}
