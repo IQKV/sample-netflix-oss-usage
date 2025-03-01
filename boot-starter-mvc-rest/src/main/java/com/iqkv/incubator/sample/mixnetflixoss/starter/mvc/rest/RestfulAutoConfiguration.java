@@ -25,6 +25,6 @@ import org.springframework.context.annotation.Import;
 @Import(value = {
     WebConfig.class
 })
-@EnableConfigurationProperties(ApplicationBuildInfoProperties.class)
+@EnableConfigurationProperties(ApplicationInfoProperties.class)
 public class RestfulAutoConfiguration {
 }
