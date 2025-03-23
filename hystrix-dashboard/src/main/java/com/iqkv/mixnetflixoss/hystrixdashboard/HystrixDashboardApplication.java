@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.iqkv.incubator.sample.mixnetflixoss.hystrixdashboard;
+package com.iqkv.sample.mixnetflixoss.hystrixdashboard;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
