@@ -12,7 +12,7 @@
 
 
     <parent>
-        <groupId>com.iqkv.incubator.sample.mixnetflixoss</groupId>
+        <groupId>com.iqkv.sample.mixnetflixoss</groupId>
         <artifactId>sample-mix-netflixoss</artifactId>
         <version>25.0.0-SNAPSHOT</version>
     </parent>
@@ -25,7 +25,7 @@
         <sonar.coverage.exclusions>**/*Config*.java,**/*Properties.java,**/*Test.java,**/Test*.java</sonar.coverage.exclusions>
         <checkstyle.skip>false</checkstyle.skip>
         <maven.gitcommitid.skip>false</maven.gitcommitid.skip>
-        <start-class>com.iqkv.incubator.sample.mixnetflixoss.department.DepartmentApplication</start-class>
+        <start-class>com.iqkv.sample.mixnetflixoss.department.DepartmentApplication</start-class>
     </properties>
 
     <dependencies>
@@ -57,11 +57,11 @@
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.iqkv.incubator.sample.mixnetflixoss</groupId>
+            <groupId>com.iqkv.sample.mixnetflixoss</groupId>
             <artifactId>boot-starter-cache</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.iqkv.incubator.sample.mixnetflixoss</groupId>
+            <groupId>com.iqkv.sample.mixnetflixoss</groupId>
             <artifactId>boot-starter-mvc-rest</artifactId>
         </dependency>
         <dependency>
