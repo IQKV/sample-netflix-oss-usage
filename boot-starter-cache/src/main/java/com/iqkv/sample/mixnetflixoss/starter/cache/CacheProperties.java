@@ -18,7 +18,7 @@ package com.iqkv.sample.mixnetflixoss.starter.cache;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "application-settings.cache", ignoreUnknownFields = false)
+@ConfigurationProperties(prefix = "expertness.cache", ignoreUnknownFields = false)
 public class CacheProperties {
   Ehcache ehcache = new Ehcache();
 
