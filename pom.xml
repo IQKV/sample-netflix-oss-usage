@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.iqkv.sample.mixnetflixoss</groupId>
+    <groupId>com.iqkv</groupId>
     <artifactId>sample-mix-netflixoss</artifactId>
     <version>25.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -46,15 +46,15 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <sonar.exclusions>**/*Application.java</sonar.exclusions>
         <spring-boot.version>2.7.18</spring-boot.version>
-        <lombok.version>1.18.36</lombok.version>
+        <lombok.version>1.18.38</lombok.version>
 
         <liquibase.version>4.31.1</liquibase.version>
         <vladmihalcea.hibernate-types.version>2.21.1</vladmihalcea.hibernate-types.version>
-        <testcontainers.version>1.20.6</testcontainers.version>
+        <testcontainers.version>1.21.0</testcontainers.version>
         <javax-servlet-api.version>4.0.1</javax-servlet-api.version>
         <spring-cloud-dependencies.version>2021.0.6</spring-cloud-dependencies.version>
         <springdoc.version>1.8.0</springdoc.version>
-        <logstash.logback.encoder.version>8.0</logstash.logback.encoder.version>
+        <logstash.logback.encoder.version>8.1</logstash.logback.encoder.version>
         <loki-logback-appender.version>1.6.0</loki-logback-appender.version>
         <mysql-connector.version>8.0.32</mysql-connector.version>
         <zipkin.version>2.2.8.RELEASE</zipkin.version>
@@ -63,15 +63,15 @@
         <codehaus.versions-maven-plugin.version>2.18.0</codehaus.versions-maven-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
         <maven-checkstyle-plugin.version>3.6.0</maven-checkstyle-plugin.version>
-        <puppycrawl.checkstyle.version>10.21.4</puppycrawl.checkstyle.version>
+        <puppycrawl.checkstyle.version>10.23.1</puppycrawl.checkstyle.version>
         <maven-javadoc-plugin.version>3.11.2</maven-javadoc-plugin.version>
         <maven-deploy-plugin.version>3.1.4</maven-deploy-plugin.version>
         <lombok-maven-plugin.version>1.18.20.0</lombok-maven-plugin.version>
         <git-commit-id-plugin.version>9.0.1</git-commit-id-plugin.version>
-        <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
-        <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
+        <maven-surefire-plugin.version>3.5.3</maven-surefire-plugin.version>
+        <jacoco-maven-plugin.version>0.8.13</jacoco-maven-plugin.version>
         <ehcache.version>3.10.8</ehcache.version>
-        <micrometer.version>1.14.5</micrometer.version>
+        <micrometer.version>1.14.6</micrometer.version>
         <eureka.version>4.2.1</eureka.version>
         <hystrix.version>2.2.10.RELEASE</hystrix.version>
         <zuul.version>2.2.10.RELEASE</zuul.version>
@@ -94,13 +94,13 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.iqkv.sample.mixnetflixoss</groupId>
-                <artifactId>boot-starter-cache</artifactId>
+                <groupId>com.iqkv</groupId>
+                <artifactId>sample-mix-netflixoss-boot-starter-cache</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.iqkv.sample.mixnetflixoss</groupId>
-                <artifactId>boot-starter-mvc-rest</artifactId>
+                <groupId>com.iqkv</groupId>
+                <artifactId>sample-mix-netflixoss-boot-starter-mvc-rest</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
