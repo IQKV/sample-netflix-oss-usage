@@ -37,7 +37,7 @@ Spring Cloud / Netflix OSS
 - Add new version of Docker Compose [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
 - Spin-up single instance of MongoDB, MySQL and Zipkin by running command:
 
-```
+```bash
 docker compose -f compose.yaml up -d
 ```
 
@@ -54,9 +54,9 @@ quality is measured by:
 
 ### Tests
 
-This project has standard JUnit tests. To run them execute this command:
+This project contains a JUnit tests, Hamcrest matchers, Mockito test doubles, Wiremock stubs, etc. You can run the test suite using
 
-```text
+```bash
 ./mvnw verify -P use-testcontainers
 ```
 
