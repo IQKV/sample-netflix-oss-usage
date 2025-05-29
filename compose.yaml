@@ -1,9 +1,9 @@
 # This configuration is intended for development purposes
-name: dev-mixnetflixoss
+name: dev-netflixoss
 services:
   mongodb:
     image: mongo:5.0-focal
-    container_name: dev-mixnetflixoss-mongodb
+    container_name: dev-netflixoss-mongodb
     restart: no
     ports:
       - 27017:27017
@@ -14,7 +14,7 @@ services:
 
   mysql:
     image: mysql:5.7.44
-    container_name: dev-mixnetflixoss-mysql
+    container_name: dev-netflixoss-mysql
     restart: no
     ports:
       - 3306:3306
@@ -48,7 +48,7 @@ services:
     container_name: fake_dependencies
 
   prometheus:
-    container_name: dev-mixnetflixoss-prometheus
+    container_name: dev-netflixoss-prometheus
     image: prom/prometheus:v3.1.0
     volumes:
       - ./docker/prometheus/:/etc/prometheus/
@@ -58,7 +58,7 @@ services:
     # docker/grafana/provisioning/datasources/datasource.yml
     network_mode: "host" # to test locally running service
   grafana:
-    container_name: dev-mixnetflixoss-grafana
+    container_name: dev-netflixoss-grafana
     image: grafana/grafana:11.4.0
     volumes:
       - ./docker/grafana/provisioning/:/etc/grafana/provisioning/
@@ -71,7 +71,7 @@ services:
     network_mode: "host" # to test locally running service
 
   sonar:
-    container_name: dev-mixnetflixoss-sonarqube
+    container_name: dev-netflixoss-sonarqube
     image: sonarqube:25.3.0.104237-community
     # Forced authentication redirect for UI is turned off for out of the box experience while trying out SonarQube
     # For real use cases delete SONAR_FORCEAUTHENTICATION variable or set SONAR_FORCEAUTHENTICATION=true

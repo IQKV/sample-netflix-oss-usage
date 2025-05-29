@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sample-mix-netflixoss-department-service</artifactId>
+    <artifactId>sample-netflixossusage-department-service</artifactId>
     <version>25.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -13,7 +13,7 @@
 
     <parent>
         <groupId>com.iqkv</groupId>
-        <artifactId>sample-mix-netflixoss</artifactId>
+        <artifactId>sample-netflixossusage</artifactId>
         <version>25.0.0-SNAPSHOT</version>
     </parent>
 
@@ -25,7 +25,7 @@
         <sonar.coverage.exclusions>**/*Config*.java,**/*Properties.java,**/*Test.java,**/Test*.java</sonar.coverage.exclusions>
         <checkstyle.skip>false</checkstyle.skip>
         <maven.gitcommitid.skip>false</maven.gitcommitid.skip>
-        <start-class>com.iqkv.sample.mixnetflixoss.department.DepartmentApplication</start-class>
+        <start-class>com.iqkv.sample.netflixossusage.department.DepartmentApplication</start-class>
     </properties>
 
     <dependencies>
@@ -58,11 +58,11 @@
         </dependency>
         <dependency>
             <groupId>com.iqkv</groupId>
-            <artifactId>sample-mix-netflixoss-boot-starter-cache</artifactId>
+            <artifactId>sample-netflixossusage-boot-starter-cache</artifactId>
         </dependency>
         <dependency>
             <groupId>com.iqkv</groupId>
-            <artifactId>sample-mix-netflixoss-boot-starter-mvc-rest</artifactId>
+            <artifactId>sample-netflixossusage-boot-starter-mvc-rest</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

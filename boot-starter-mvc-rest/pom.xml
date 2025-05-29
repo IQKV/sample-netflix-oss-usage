@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.iqkv</groupId>
-    <artifactId>sample-mix-netflixoss-boot-starter-mvc-rest</artifactId>
+    <artifactId>sample-netflixossusage-boot-starter-mvc-rest</artifactId>
     <version>25.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -33,7 +33,7 @@
 
     <parent>
         <groupId>com.iqkv</groupId>
-        <artifactId>sample-mix-netflixoss</artifactId>
+        <artifactId>sample-netflixossusage</artifactId>
         <version>25.0.0-SNAPSHOT</version>
     </parent>
 

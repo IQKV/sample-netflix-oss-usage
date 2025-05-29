@@ -3,7 +3,7 @@
     {
       "name": "expertness.cache",
       "description": "Cache configuration definitions.",
-      "type": "com.iqkv.sample.mixnetflixoss.starter.cache.CacheProperties"
+      "type": "com.iqkv.sample.netflixossusage.starter.cache.CacheProperties"
     }
   ]
 }
