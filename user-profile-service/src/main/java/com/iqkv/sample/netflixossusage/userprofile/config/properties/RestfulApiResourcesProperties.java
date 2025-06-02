@@ -21,7 +21,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
 
 @ConstructorBinding
-@ConfigurationProperties(prefix = "expertness.service-discovery.services")
+@ConfigurationProperties(prefix = "application-configuration.service-discovery.services")
 public record RestfulApiResourcesProperties(@NonNull String departmentServiceBaseUrl,
                                             @NonNull String departmentServiceUri) {
 

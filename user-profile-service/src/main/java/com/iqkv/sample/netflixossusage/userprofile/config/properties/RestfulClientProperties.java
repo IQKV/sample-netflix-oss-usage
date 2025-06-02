@@ -25,7 +25,7 @@ import org.springframework.validation.annotation.Validated;
 
 @ConstructorBinding
 @Validated
-@ConfigurationProperties(prefix = "expertness.restful-client")
+@ConfigurationProperties(prefix = "application-configuration.restful-client")
 public record RestfulClientProperties(
     @NonNull Duration connectTimeout,
     @NonNull Duration readTimeout,
