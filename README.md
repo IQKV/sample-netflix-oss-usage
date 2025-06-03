@@ -6,7 +6,7 @@ The project maintains two microservices, the department service and the user pro
 The User Profile Service allows you to retrieve department data by calling the Department Service REST API and complete the profile data response
 with department information.
 
-### Technology stack
+### ⚙️ Technology stack
 
 Java 21, Maven 3, Spring Boot 2.7, Spring Cloud 2021.0.3
 mongo:5.0, mysql:5.7.43, zipkin-slim:2.23.
@@ -31,7 +31,7 @@ Spring Cloud / Netflix OSS
 | Centralized Configuration |         Spring Cloud Config Server         |                                |
 | Distributed Tracing       | Spring Cloud Sleuth<br>Spring Cloud Zipkin |                                |
 
-### Prerequisites
+### 💡 Prerequisites
 
 - Install Docker [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/) - at least 1.6.0
 - Add new version of Docker Compose [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
@@ -41,7 +41,7 @@ Spring Cloud / Netflix OSS
 docker compose -f compose.yaml up -d
 ```
 
-### Code conventions
+### 📝 Code conventions
 
 The code follows [Google Code Conventions](https://google.github.io/styleguide/javaguide.html). Code
 quality is measured by:
