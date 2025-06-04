@@ -1,5 +1,5 @@
 {
-  "name": "@iqkv/sample-netflixossusage",
+  "name": "@iqkv/sample-netflix-oss-usage",
   "version": "25.0.0",
   "description": "Provide an optional Git commit hooks.",
   "private": true,

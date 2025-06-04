@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.iqkv</groupId>
-    <artifactId>sample-netflixossusage</artifactId>
+    <artifactId>sample-netflix-oss-usage</artifactId>
     <version>25.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>sample-netflixossusage</name>
+    <name>sample-netflix-oss-usage</name>
     <description>Minimal microservices example demo - using Spring Cloud / Netflix OSS Project</description>
     <licenses>
         <license>
@@ -95,12 +95,12 @@
         <dependencies>
             <dependency>
                 <groupId>com.iqkv</groupId>
-                <artifactId>sample-netflixossusage-boot-starter-cache</artifactId>
+                <artifactId>sample-netflix-oss-usage-boot-starter-cache</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.iqkv</groupId>
-                <artifactId>sample-netflixossusage-boot-starter-mvc-rest</artifactId>
+                <artifactId>sample-netflix-oss-usage-boot-starter-mvc-rest</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
