@@ -35,7 +35,7 @@ Spring Cloud / Netflix OSS
 
 - Install Docker [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/) - at least 1.6.0
 - Add new version of Docker Compose [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
-- Spin-up single instance of MongoDB, MySQL and Zipkin by running command:
+- Spin up a single instance of MongoDB, MySQL, and Zipkin by running the command:
 
 ```bash
 docker compose -f compose.yaml up -d
