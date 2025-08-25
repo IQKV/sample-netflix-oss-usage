@@ -1,74 +1,124 @@
-## 🚀 Departments and User Profile Microservices
+## 🚀 Multi‑module Spring Cloud / Netflix OSS sample
 
-Minimal microservices example demo - using legacy Spring Cloud / Netflix OSS Project.
+Minimal microservices system that demonstrates classic Spring Cloud Netflix components and patterns using a Maven multi‑module build.
 
-The project maintains two microservices, the department service and the user profile service. Each user profile can be linked to any department.
-The User Profile Service allows you to retrieve department data by calling the Department Service REST API and complete the profile data response
-with department information.
+The domain contains two business services: a Department Service and a User Profile Service. The User Profile Service enriches user profiles by calling the Department Service.
 
-### ⚙️ Technology stack
+### ⚙️ Tech stack
 
-Java 21, Maven 3, Spring Boot 2.7, Spring Cloud 2021.0.3
-mongo:5.0, mysql:5.7.43, zipkin-slim:2.23.
+Java 21, Maven 3, Spring Boot 2.7.x, Spring Cloud 2021.x
 
-_Including utils:_ liquibase, WireMock, Mongodb & Mysql testcontainers, docker-compose._dev_.yml,
-micrometer, _checkstyle_ configuration, SpotBugs, PMD etc.
+Infra for local dev: MongoDB 5.x, MySQL 5.7.x, Zipkin, Prometheus, Grafana, SonarQube (via `compose.yaml`).
 
-This sample project specifically demonstrates the following features using the Spring Cloud ecosystem.
+Utilities: Liquibase, Testcontainers, WireMock, Micrometer, Checkstyle, SpotBugs, PMD, Qulice, JaCoCo, Modernizer.
 
-- Service Registry
-- Centralized Configuration
-- (Client Side) Load Balancing
-- Circuit Breaker pattern
+### 🧱 Modules
 
-Spring Cloud / Netflix OSS
+All modules are declared in the root `pom.xml` as a multi‑module reactor.
 
-| Service/Feature           |           Spring Cloud Component           | Netflix Component              |
-| ------------------------- | :----------------------------------------: | ------------------------------ |
-| Service Discovery         |            Spring Cloud Eureka             | Eureka Server<br>Eureka Client |
-| Circuit Breaker           |            Spring Cloud Hystrix            | Hystrix<br>Hystrix Dashboard   |
-| Load Balancing            |         Spring Cloud Load Balancer         |                                |
-| Centralized Configuration |         Spring Cloud Config Server         |                                |
-| Distributed Tracing       | Spring Cloud Sleuth<br>Spring Cloud Zipkin |                                |
+| Module | Type | Purpose | Default port | Notes |
+| --- | --- | --- | --- | --- |
+| `service-registry` | Spring Boot app | Eureka Server for service discovery | 8080 | Set `SERVER_PORT` to avoid clashes locally |
+| `config-server` | Spring Boot app | Centralized configuration backed by Git | 8080 | Imports Git repo defined in `config-server/application.yml` |
+| `api-gateway` | Spring Boot app | Edge gateway (Zuul) + Hystrix circuit breakers | 8080 | Routes `/api/v1/departments/**` and `/api/v1/user-profiles/**` |
+| `hystrix-dashboard` | Spring Boot app | Hystrix Dashboard | 8080 | Exposes Hystrix stream consumption |
+| `department-service` | Spring Boot app | MySQL + Liquibase backed Department API | 8080 | JPA, Liquibase migrations under `migrations/` |
+| `user-profile-service` | Spring Boot app | MongoDB backed User Profile API | 8080 | Calls Department service via gateway/discovery |
+| `boot-starter-cache` | Library (starter) | Opinionated cache starter (JCache/Ehcache) | — | Auto‑config via `spring.factories` |
+| `boot-starter-mvc-rest` | Library (starter) | REST/MVC common config (errors, JSON, filters) | — | Auto‑config via `spring.factories` |
 
-### 💡 Prerequisites
+Notes:
+- By default each service binds to `8080` (see `server.port`). When running multiple apps locally, pass a unique `SERVER_PORT` per service.
+- Actuator endpoints are enabled for health/metrics; Prometheus and Zipkin tracing are preconfigured.
 
-- Install Docker [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/) - at least 1.6.0
-- Add new version of Docker Compose [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
-- Spin up a single instance of MongoDB, MySQL, and Zipkin by running the command:
+### 🔁 Gateway routes
+
+`api-gateway` forwards to registered services via Eureka:
+- `lb://department-service` → `/api/v1/departments/**` (Hystrix fallback `/departmentServiceFallback`)
+- `lb://user-profile-service` → `/api/v1/user-profiles/**` (Hystrix fallback `/userProfileServiceFallback`)
+
+### ▶️ Quick start
+
+1) Start local infra (MongoDB, MySQL, Zipkin, Prometheus, Grafana, SonarQube):
 
 ```bash
 docker compose -f compose.yaml up -d
 ```
 
-### 📝 Code conventions
+2) Build everything (skipping tests if you just want binaries):
 
-The code adheres to the [Google Code Conventions](https://google.github.io/styleguide/javaguide.html). Code
-quality is measured by:
+```bash
+./mvnw -q -DskipTests clean install
+```
 
-- [SonarQube](https://docs.sonarsource.com/)
-- [PMD](https://pmd.github.io/)
-- [CheckStyle](https://checkstyle.sourceforge.io/)
-- [SpotBugs](https://spotbugs.github.io/)
-- [Qulice](https://www.qulice.com/)
+3) Run the services in separate terminals; assign unique ports via `SERVER_PORT`:
 
-### Tests
+```bash
+# Discovery + Config + Dashboard
+SERVER_PORT=3001 ./mvnw -pl service-registry -am spring-boot:run
+SERVER_PORT=3002 ./mvnw -pl config-server -am spring-boot:run
+SERVER_PORT=3003 ./mvnw -pl hystrix-dashboard -am spring-boot:run
 
-This project contains JUnit tests, Hamcrest matchers, Mockito test doubles, Wiremock stubs, etc. You can run the test suite using
+# Domain services
+SERVER_PORT=3004 ./mvnw -pl department-service -am spring-boot:run
+SERVER_PORT=3005 ./mvnw -pl user-profile-service -am spring-boot:run
+
+# Edge gateway
+SERVER_PORT=3000 ./mvnw -pl api-gateway -am spring-boot:run
+```
+
+Suggested local URLs:
+- Service Registry (Eureka): `http://localhost:3001`
+- Config Server: `http://localhost:3002`
+- Hystrix Dashboard: `http://localhost:3003`
+- API Gateway: `http://localhost:3000`
+- Zipkin: `http://localhost:9411`
+- Prometheus: `http://localhost:9090` (via host network in compose)
+- Grafana: `http://localhost:3000` (if not using the gateway port) — adjust as needed
+
+Example requests:
+```bash
+# Departments
+curl http://localhost:3000/api/v1/departments
+
+# User Profiles (enriched with department info)
+curl http://localhost:3000/api/v1/user-profiles
+```
+
+### 🧪 Testing
+
+Run full test suite with Testcontainers:
 
 ```bash
 ./mvnw verify -P use-testcontainers
 ```
 
-> ### Versioning
->
-> Project uses a three-segment [CalVer](https://calver.org/) scheme, with a short year in the major version slot, short month in the minor version slot, and micro/patch version in the third
-> and final slot.
->
-> ```
->  YY.MM.MICRO
-> ```
->
-> 1. **YY** - short year - 6, 16, 106
-> 2. **MM** - short month - 1, 2 ... 11, 12
-> 3. **MICRO** - "patch" segment
+### 🧭 Project structure (high level)
+
+```
+sample-netflix-oss-usage
+├─ service-registry
+├─ config-server
+├─ api-gateway
+├─ hystrix-dashboard
+├─ department-service
+├─ user-profile-service
+├─ boot-starter-cache
+└─ boot-starter-mvc-rest
+```
+
+### 📝 Code conventions
+
+The code follows the Google Java Style Guide. Quality gates and analysis are configured via:
+- SonarQube, PMD, Checkstyle, SpotBugs, Qulice, JaCoCo, Modernizer
+
+### 📦 Versioning
+
+Project uses three‑segment [CalVer](https://calver.org/): `YY.MM.MICRO`.
+
+—
+
+If you run into port or config conflicts locally, override via environment variables:
+- `SERVER_PORT`, `EUREKA_SERVER_URL`, `CONFIGSERVER_IMPORT`, DB connection strings, etc.
+
+Happy hacking!
