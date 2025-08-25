@@ -16,42 +16,44 @@ Utilities: Liquibase, Testcontainers, WireMock, Micrometer, Checkstyle, SpotBugs
 
 All modules are declared in the root `pom.xml` as a multi‑module reactor.
 
-| Module | Type | Purpose | Default port | Notes |
-| --- | --- | --- | --- | --- |
-| `service-registry` | Spring Boot app | Eureka Server for service discovery | 8080 | Set `SERVER_PORT` to avoid clashes locally |
-| `config-server` | Spring Boot app | Centralized configuration backed by Git | 8080 | Imports Git repo defined in `config-server/application.yml` |
-| `api-gateway` | Spring Boot app | Edge gateway (Zuul) + Hystrix circuit breakers | 8080 | Routes `/api/v1/departments/**` and `/api/v1/user-profiles/**` |
-| `hystrix-dashboard` | Spring Boot app | Hystrix Dashboard | 8080 | Exposes Hystrix stream consumption |
-| `department-service` | Spring Boot app | MySQL + Liquibase backed Department API | 8080 | JPA, Liquibase migrations under `migrations/` |
-| `user-profile-service` | Spring Boot app | MongoDB backed User Profile API | 8080 | Calls Department service via gateway/discovery |
-| `boot-starter-cache` | Library (starter) | Opinionated cache starter (JCache/Ehcache) | — | Auto‑config via `spring.factories` |
-| `boot-starter-mvc-rest` | Library (starter) | REST/MVC common config (errors, JSON, filters) | — | Auto‑config via `spring.factories` |
+| Module                  | Type              | Purpose                                        | Default port | Notes                                                          |
+| ----------------------- | ----------------- | ---------------------------------------------- | ------------ | -------------------------------------------------------------- |
+| `service-registry`      | Spring Boot app   | Eureka Server for service discovery            | 8080         | Set `SERVER_PORT` to avoid clashes locally                     |
+| `config-server`         | Spring Boot app   | Centralized configuration backed by Git        | 8080         | Imports Git repo defined in `config-server/application.yml`    |
+| `api-gateway`           | Spring Boot app   | Edge gateway (Zuul) + Hystrix circuit breakers | 8080         | Routes `/api/v1/departments/**` and `/api/v1/user-profiles/**` |
+| `hystrix-dashboard`     | Spring Boot app   | Hystrix Dashboard                              | 8080         | Exposes Hystrix stream consumption                             |
+| `department-service`    | Spring Boot app   | MySQL + Liquibase backed Department API        | 8080         | JPA, Liquibase migrations under `migrations/`                  |
+| `user-profile-service`  | Spring Boot app   | MongoDB backed User Profile API                | 8080         | Calls Department service via gateway/discovery                 |
+| `boot-starter-cache`    | Library (starter) | Opinionated cache starter (JCache/Ehcache)     | —            | Auto‑config via `spring.factories`                             |
+| `boot-starter-mvc-rest` | Library (starter) | REST/MVC common config (errors, JSON, filters) | —            | Auto‑config via `spring.factories`                             |
 
 Notes:
+
 - By default each service binds to `8080` (see `server.port`). When running multiple apps locally, pass a unique `SERVER_PORT` per service.
 - Actuator endpoints are enabled for health/metrics; Prometheus and Zipkin tracing are preconfigured.
 
 ### 🔁 Gateway routes
 
 `api-gateway` forwards to registered services via Eureka:
+
 - `lb://department-service` → `/api/v1/departments/**` (Hystrix fallback `/departmentServiceFallback`)
 - `lb://user-profile-service` → `/api/v1/user-profiles/**` (Hystrix fallback `/userProfileServiceFallback`)
 
 ### ▶️ Quick start
 
-1) Start local infra (MongoDB, MySQL, Zipkin, Prometheus, Grafana, SonarQube):
+1. Start local infra (MongoDB, MySQL, Zipkin, Prometheus, Grafana, SonarQube):
 
 ```bash
 docker compose -f compose.yaml up -d
 ```
 
-2) Build everything (skipping tests if you just want binaries):
+2. Build everything (skipping tests if you just want binaries):
 
 ```bash
 ./mvnw -q -DskipTests clean install
 ```
 
-3) Run the services in separate terminals; assign unique ports via `SERVER_PORT`:
+3. Run the services in separate terminals; assign unique ports via `SERVER_PORT`:
 
 ```bash
 # Discovery + Config + Dashboard
@@ -68,6 +70,7 @@ SERVER_PORT=3000 ./mvnw -pl api-gateway -am spring-boot:run
 ```
 
 Suggested local URLs:
+
 - Service Registry (Eureka): `http://localhost:3001`
 - Config Server: `http://localhost:3002`
 - Hystrix Dashboard: `http://localhost:3003`
@@ -77,6 +80,7 @@ Suggested local URLs:
 - Grafana: `http://localhost:3000` (if not using the gateway port) — adjust as needed
 
 Example requests:
+
 ```bash
 # Departments
 curl http://localhost:3000/api/v1/departments
@@ -110,6 +114,7 @@ sample-netflix-oss-usage
 ### 📝 Code conventions
 
 The code follows the Google Java Style Guide. Quality gates and analysis are configured via:
+
 - SonarQube, PMD, Checkstyle, SpotBugs, Qulice, JaCoCo, Modernizer
 
 ### 📦 Versioning
@@ -119,6 +124,7 @@ Project uses three‑segment [CalVer](https://calver.org/): `YY.MM.MICRO`.
 —
 
 If you run into port or config conflicts locally, override via environment variables:
+
 - `SERVER_PORT`, `EUREKA_SERVER_URL`, `CONFIGSERVER_IMPORT`, DB connection strings, etc.
 
 Happy hacking!
