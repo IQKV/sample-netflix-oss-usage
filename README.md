@@ -43,19 +43,19 @@ Notes:
 
 1. Start local infra (MongoDB, MySQL, Zipkin, Prometheus, Grafana, SonarQube):
 
-```bash
+```shell script
 docker compose -f compose.yaml up -d
 ```
 
 2. Build everything (skipping tests if you just want binaries):
 
-```bash
+```shell script
 ./mvnw -q -DskipTests clean install
 ```
 
 3. Run the services in separate terminals; assign unique ports via `SERVER_PORT`:
 
-```bash
+```shell script
 # Discovery + Config + Dashboard
 SERVER_PORT=3001 ./mvnw -pl service-registry -am spring-boot:run
 SERVER_PORT=3002 ./mvnw -pl config-server -am spring-boot:run
@@ -81,7 +81,7 @@ Suggested local URLs:
 
 Example requests:
 
-```bash
+```shell script
 # Departments
 curl http://localhost:3000/api/v1/departments
 
@@ -93,7 +93,7 @@ curl http://localhost:3000/api/v1/user-profiles
 
 Run full test suite with Testcontainers:
 
-```bash
+```shell script
 ./mvnw verify -P use-testcontainers
 ```
 
