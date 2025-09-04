@@ -11,7 +11,7 @@
     <description>User Profile Service</description>
 
     <parent>
-        <groupId>com.iqkv</groupId>
+        <groupId>com.github.dimdnk</groupId>
         <artifactId>sample-netflix-oss-usage</artifactId>
         <version>25.0.0-SNAPSHOT</version>
     </parent>
@@ -52,7 +52,7 @@
             <artifactId>metrics-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.iqkv</groupId>
+            <groupId>com.github.dimdnk</groupId>
             <artifactId>sample-netflix-oss-usage-boot-starter-mvc-rest</artifactId>
         </dependency>
         <dependency>
