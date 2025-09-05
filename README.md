@@ -117,6 +117,15 @@ The code follows the Google Java Style Guide. Quality gates and analysis are con
 
 - SonarQube, PMD, Checkstyle, SpotBugs, Qulice, JaCoCo, Modernizer
 
+### 📖 Cursor Rules
+
+The project includes Cursor AI assistant rules for consistent code quality:
+
+- **Java Best Practices**: Rules for code organization, design patterns, performance, security, testing, and common pitfalls
+- **Spring Boot Best Practices**: Guidelines for Spring Boot application structure, configuration, dependency injection, testing, and API design
+
+These rules help maintain coding standards and provide automated guidance when using the Cursor AI assistant.
+
 ### 📦 Versioning
 
 Project uses three‑segment [CalVer](https://calver.org/): `YY.MM.MICRO`.
