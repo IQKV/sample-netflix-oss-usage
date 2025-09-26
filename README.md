@@ -6,7 +6,7 @@ The domain contains two business services: a Department Service and a User Profi
 
 ### ⚙️ Tech stack
 
-Java 21, Maven 3, Spring Boot 2.7.x, Spring Cloud 2021.x
+Java 25, Maven 3, Spring Boot 2.7.x, Spring Cloud 2021.x
 
 Infra for local dev: MongoDB 5.x, MySQL 5.7.x, Zipkin, Prometheus, Grafana, SonarQube (via `compose.yaml`).
 
