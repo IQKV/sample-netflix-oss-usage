@@ -49,7 +49,7 @@ public abstract class AbstractErrorHandler implements ResponseErrorHandler {
     String errorMessage = "";
     try {
       errorMessage = fetchErrorMessage(clientHttpResponse);
-    } catch (Exception exception) {
+    } catch (final Exception exception) {
       log.warn("Unable to parse error body", exception);
       errorMessage = StreamUtils.copyToString(clientHttpResponse.getBody(), Charset.defaultCharset());
     }

@@ -44,7 +44,7 @@ public class DepartmentServiceClientImpl implements DepartmentServiceClient {
       return restTemplate.exchange(builder.toUriString(), HttpMethod.GET, null,
           new ParameterizedTypeReference<DepartmentResponse>() {
           }).getBody();
-    } catch (ResourceAccessException e) {
+    } catch (final ResourceAccessException e) {
       throw new DownstreamException(Downstream.DEPARTMENT_SERVICE, e, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
