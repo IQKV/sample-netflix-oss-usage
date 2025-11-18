@@ -27,7 +27,7 @@ import org.springframework.http.client.ClientHttpResponse;
 
 public class CommonErrorHandler extends AbstractErrorHandler {
 
-  public CommonErrorHandler(ObjectMapper objectMapper, Downstream downstream) {
+  public CommonErrorHandler(final ObjectMapper objectMapper, final Downstream downstream) {
     super(objectMapper, downstream);
   }
 
