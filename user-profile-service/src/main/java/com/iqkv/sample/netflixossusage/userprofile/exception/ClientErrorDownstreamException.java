@@ -23,11 +23,11 @@ import org.springframework.http.HttpStatus;
 @Value
 @EqualsAndHashCode(callSuper = true)
 public class ClientErrorDownstreamException extends DownstreamException {
-  public ClientErrorDownstreamException(Downstream downstream, Throwable cause) {
+  public ClientErrorDownstreamException(final Downstream downstream, final Throwable cause) {
     super(downstream, cause, HttpStatus.INTERNAL_SERVER_ERROR);
   }
 
-  public ClientErrorDownstreamException(Downstream downstream, String message, HttpStatus responseCode) {
+  public ClientErrorDownstreamException(final Downstream downstream, final String message, final HttpStatus responseCode) {
     super(downstream, message, responseCode);
   }
 }
