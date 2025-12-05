@@ -1,140 +1,140 @@
-build-info :
-  description : '@project.description@'
-  relative-path : ${SERVER_SERVLET_CONTEXT_PATH:/}
-  version : '@project.version@'
+build-info:
+  description: '@project.description@'
+  relative-path: ${SERVER_SERVLET_CONTEXT_PATH:/}
+  version: '@project.version@'
 
-git :
-  commit : '@git.commit.id.abbrev@'
-  build_time : '@git.build.time@'
+git:
+  commit: '@git.commit.id.abbrev@'
+  build_time: '@git.build.time@'
 
-info :
-  app :
-    name : '@project.name@'
-    description : '@project.description@'
-    version : '@project.version@'
-    git_commit : ${git.commit}
-    build_time : ${git.build_time}
+info:
+  app:
+    name: '@project.name@'
+    description: '@project.description@'
+    version: '@project.version@'
+    git_commit: ${git.commit}
+    build_time: ${git.build_time}
 
-spring :
-  application :
-    name : user-profile-service
-  data :
-    mongodb :
-      uri : ${MONGODB_SERVER_URI:mongodb://svc_testing_mongo:svc_testing_mongo@localhost:27017/userprofiledb?authSource=admin}
-  devtools :
-    add-properties : false
-    restart :
-      enabled : false
-    livereload :
-      enabled : false
+spring:
+  application:
+    name: user-profile-service
+  data:
+    mongodb:
+      uri: ${MONGODB_SERVER_URI:mongodb://svc_testing_mongo:svc_testing_mongo@localhost:27017/userprofiledb?authSource=admin}
+  devtools:
+    add-properties: false
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
 
-  jackson :
-    default-property-inclusion : NON_NULL
-  lifecycle :
-    timeout-per-shutdown-phase : ${TIMEOUT_PER_SHUTDOWN:20s}
+  jackson:
+    default-property-inclusion: NON_NULL
+  lifecycle:
+    timeout-per-shutdown-phase: ${TIMEOUT_PER_SHUTDOWN:20s}
 
-  zipkin :
-    base-url : ${ZIPKIN_HOST:http://127.0.0.1:9411/}
-    enabled : true
+  zipkin:
+    base-url: ${ZIPKIN_HOST:http://127.0.0.1:9411/}
+    enabled: true
 
-logging :
-  pattern :
-    level : '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
-  level :
-    ROOT : ${LOGGING_LEVEL_ROOT:INFO}
+logging:
+  pattern:
+    level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
+  level:
+    ROOT: ${LOGGING_LEVEL_ROOT:INFO}
 
-server :
-  port : ${SERVER_PORT:8080}
-  shutdown : graceful
-  forward-headers-strategy : framework
-  tomcat :
-    redirect-context-root : false
+server:
+  port: ${SERVER_PORT:8080}
+  shutdown: graceful
+  forward-headers-strategy: framework
+  tomcat:
+    redirect-context-root: false
 
-eureka :
-  client :
-    serviceUrl :
-      defaultZone : ${EUREKA_SERVER_URL:http://service-registry:8080/eureka/}
-    register-with-eureka : true
-    fetch-registry : true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL:http://service-registry:8080/eureka/}
+    register-with-eureka: true
+    fetch-registry: true
 
-management :
-  health :
-    livenessstate :
-      enabled : true
-    readinessstate :
-      enabled : true
-  info :
-    env :
-      enabled : true
-    java :
-      enabled : true
-    os :
-      enabled : true
-  server :
-    port : ${MANAGEMENT_SERVER_PORT:8080}
-    add-application-context-header : true
+management:
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  info:
+    env:
+      enabled: true
+    java:
+      enabled: true
+    os:
+      enabled: true
+  server:
+    port: ${MANAGEMENT_SERVER_PORT:8080}
+    add-application-context-header: true
 
-  metrics :
-    tags :
-      application : ${spring.application.name}
-      profiles : ${spring.profiles.active}
-    distribution :
-      percentiles-histogram :
-        http :
-          server :
-            requests : true
-  tracing :
-    sampling :
-      probability : 1.0
-    enabled : true
-  prometheus :
-    metrics :
-      export :
-        step : 20s
-        enabled : true
-  zipkin :
-    tracing :
-      endpoint : ${TEMPO_URL:http://localhost:9411/api/v2/spans}
+  metrics:
+    tags:
+      application: ${spring.application.name}
+      profiles: ${spring.profiles.active}
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+  tracing:
+    sampling:
+      probability: 1.0
+    enabled: true
+  prometheus:
+    metrics:
+      export:
+        step: 20s
+        enabled: true
+  zipkin:
+    tracing:
+      endpoint: ${TEMPO_URL:http://localhost:9411/api/v2/spans}
 
-  endpoints :
-    enabled-by-default : false
-    web :
-      exposure :
-        include : health, metrics, prometheus, info, env, openapi, swagger-ui
-  endpoint :
-    health :
-      enabled : true
-      show-details : always
-      probes :
-        enabled : true
-    prometheus :
-      enabled : true
-    info :
-      enabled : true
-    env :
-      enabled : true
-      show-values : always
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: health, metrics, prometheus, info, env, openapi, swagger-ui
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+      probes:
+        enabled: true
+    prometheus:
+      enabled: true
+    info:
+      enabled: true
+    env:
+      enabled: true
+      show-values: always
 
-embedded :
-  mongodb :
-    enabled : false
+embedded:
+  mongodb:
+    enabled: false
 
-application-configuration :
-  restful-client :
-    connect-timeout : ${RESTFUL_CLIENT_CONNECT_TIMEOUT:1s}
-    read-timeout : ${RESTFUL_CLIENT_READ_TIMEOUT:10s}
-    max-conn-per-route : ${RESTFUL_CLIENT_MAX_CONN_PER_ROUTE:20}
-    max-conn-total : ${RESTFUL_CLIENT_MAX_CONN_TOTAL:2}
-    retry :
-      max-attempts : ${RESTFUL_CLIENT_RETRY_MAX_ATTEMPTS:3}
-      delay : ${RESTFUL_CLIENT_RETRY_DELAY:1000}
-      multiplier : ${RESTFUL_CLIENT_RETRY_MULTIPLIER:1.5}
-      max-delay : ${RESTFUL_CLIENT_RETRY_MAX_DELAY:3000}
+application-configuration:
+  restful-client:
+    connect-timeout: ${RESTFUL_CLIENT_CONNECT_TIMEOUT:1s}
+    read-timeout: ${RESTFUL_CLIENT_READ_TIMEOUT:10s}
+    max-conn-per-route: ${RESTFUL_CLIENT_MAX_CONN_PER_ROUTE:20}
+    max-conn-total: ${RESTFUL_CLIENT_MAX_CONN_TOTAL:2}
+    retry:
+      max-attempts: ${RESTFUL_CLIENT_RETRY_MAX_ATTEMPTS:3}
+      delay: ${RESTFUL_CLIENT_RETRY_DELAY:1000}
+      multiplier: ${RESTFUL_CLIENT_RETRY_MULTIPLIER:1.5}
+      max-delay: ${RESTFUL_CLIENT_RETRY_MAX_DELAY:3000}
 
-  service-discovery :
-    services :
-      department-service-base-url : ${DEPARTMENT_SERVICE_BASE_URL:http://department-service}
-      department-service-uri : /api/v1/departments/{id}
+  service-discovery:
+    services:
+      department-service-base-url: ${DEPARTMENT_SERVICE_BASE_URL:http://department-service}
+      department-service-uri: /api/v1/departments/{id}
 
-springdoc :
-  show-actuator : false
+springdoc:
+  show-actuator: false

@@ -1,21 +1,21 @@
-build-info :
-  description : '@project.description@'
-  relative-path : '/'
-  version : '@project.version@'
+build-info:
+  description: '@project.description@'
+  relative-path: '/'
+  version: '@project.version@'
 
-spring :
-  application :
-    name : config-server
-  cloud :
-    config :
-      enabled : false
-      server :
-        enabled : false
-        git :
-          uri : https://github.com/gh-buddy/incubator-sample-config-server-example
-          clone-on-start : false
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      enabled: false
+      server:
+        enabled: false
+        git:
+          uri: https://github.com/gh-buddy/incubator-sample-config-server-example
+          clone-on-start: false
 
-eureka :
-  client :
-    register-with-eureka : false
-    fetch-registry : false
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false

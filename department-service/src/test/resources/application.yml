@@ -1,48 +1,48 @@
-build-info :
-  description : '@project.description@'
-  relative-path : '/'
-  version : '@project.version@'
+build-info:
+  description: '@project.description@'
+  relative-path: '/'
+  version: '@project.version@'
 
-spring :
-  application :
-    name : department-service
-  liquibase :
-    change-log : migrations/master.xml
-  devtools :
-    add-properties : false
-    restart :
-      enabled : false
-    livereload :
-      enabled : false
+spring:
+  application:
+    name: department-service
+  liquibase:
+    change-log: migrations/master.xml
+  devtools:
+    add-properties: false
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
 
-  datasource :
-    type : com.zaxxer.hikari.HikariDataSource
-    driver-class-name : ${DATASOURCE_DRIVER:org.h2.Driver}
-    url : ${DATASOURCE_URL:jdbc:h2:mem:svc_testing_db}
-    username : ${DATASOURCE_USERNAME:svc_testing}
-    password : ${DATASOURCE_PASSWORD:svc_testing}
-    hikari :
-      pool-name : Hikari
-      auto-commit : false
-  jpa :
-    hibernate :
-      ddl-auto : none
-      naming :
-        physical-strategy : org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
-        implicit-strategy : org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
-    open-in-view : true
-    properties :
-      hibernate.jdbc.time_zone : UTC
-      hibernate.cache.use_second_level_cache : false
-      hibernate.cache.use_query_cache : false
-      hibernate.generate_statistics : false
-    show-sql : false
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: ${DATASOURCE_DRIVER:org.h2.Driver}
+    url: ${DATASOURCE_URL:jdbc:h2:mem:svc_testing_db}
+    username: ${DATASOURCE_USERNAME:svc_testing}
+    password: ${DATASOURCE_PASSWORD:svc_testing}
+    hikari:
+      pool-name: Hikari
+      auto-commit: false
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    open-in-view: true
+    properties:
+      hibernate.jdbc.time_zone: UTC
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+    show-sql: false
 
-  zipkin :
-    base-url : ${ZIPKIN_HOST:http://127.0.0.1:9411/}
-    enabled : false
+  zipkin:
+    base-url: ${ZIPKIN_HOST:http://127.0.0.1:9411/}
+    enabled: false
 
-eureka :
-  client :
-    register-with-eureka : false
-    fetch-registry : false
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false

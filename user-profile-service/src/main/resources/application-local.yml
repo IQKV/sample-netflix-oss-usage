@@ -1,21 +1,21 @@
-spring :
-  devtools :
-    add-properties : true
-    restart :
-      enabled : true
-    livereload :
-      enabled : true
-management :
-  endpoints :
-    enabled-by-default : true
+spring:
+  devtools:
+    add-properties: true
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+management:
+  endpoints:
+    enabled-by-default: true
 
-server :
-  port : 3005
+server:
+  port: 3005
 
-eureka :
-  client :
-    serviceUrl :
-      defaultZone : http://localhost:3000/eureka/
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:3000/eureka/
 
-springdoc :
-  show-actuator : true
+springdoc:
+  show-actuator: true
