@@ -45,7 +45,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <sonar.exclusions>**/*Application.java</sonar.exclusions>
-        <spring-boot.version>2.7.18</spring-boot.version>
+        <spring-boot.version>4.0.3</spring-boot.version>
         <lombok.version>1.18.42</lombok.version>
 
         <liquibase.version>5.0.1</liquibase.version>
